@@ -1,0 +1,148 @@
+.rate {
+    float: left;
+    height: 46px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+/* .flickity-viewport {
+    max-height: 370px !important;
+} */
+
+.icon-user {
+    font-size: 20px;
+    border: 1px solid #000;
+    border-radius: 100%;
+    padding: 8px;
+}
+
+.icon-shopping-cart {
+    font-size: 20px;
+    border: 1px solid #000;
+    border-radius: 100%;
+    padding: 8px;
+}
+
+.menu-active {
+    font-weight: 800 !important;
+    font-size: 28px !important;
+}
+
+.pagination-custom nav div a {
+    font-size: 20px;
+    background-color: #000 !important;
+    color: #fff !important;
+    margin: 0 20px;
+}
+
+.pagination-custom nav div span {
+    font-size: 20px;
+    background-color: #d4d4d4 !important;
+    color: #000 !important;
+    margin: 0 20px;
+}
+
+.p-dropdown-content {
+    background-color: #000 !important;
+}
+
+.p-dropdown-content a {
+    color: #fff !important;
+    transition: all 0.3s;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.p-dropdown-content a:hover {
+    font-size: 26px;
+}
+
+.home-text p {
+    font-size: 23px; 
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.preview-section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.preview-section .image-preview-1 {
+    position: relative;
+    width: 240px !important;
+    z-index: 100;
+}
+
+.preview-section .image-preview-2 {
+    position: relative;
+    width: 300px !important;
+    left: 28%;
+    bottom: 35%;
+}
+
+.collection-image {
+    height: 300px !important;
+    object-fit: cover;
+}
+
+.review-image {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.review-user-image {
+    height: 80px !important;
+    object-fit: cover;
+}
+
+.related-product-image {
+    width: 100% !important;
+    height: 140px !important;
+    object-fit: cover !important;
+}
+
+.btn-collection {
+    background-color: rgb(0, 0, 0, 0) !important;
+    color: #fff !important;
+}
+
+.btn-collection:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
