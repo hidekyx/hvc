@@ -119,6 +119,7 @@
 .collection-image {
     height: 300px !important;
     object-fit: cover;
+    max-width: 235px;
 }
 
 .review-image {

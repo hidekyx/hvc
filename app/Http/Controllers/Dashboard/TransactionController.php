@@ -16,7 +16,7 @@ class TransactionController extends Controller
             if (Auth::user()->role == "Admin") {
                 $view = [
                     'page' => 'Transactions Management',
-                    'data' => Transaction::get(),
+                    'data' => Transaction::orderByDesc('id_transaction')->get(),
                 ];
 
                 return view('dashboard.transactions.index')->with($view);
