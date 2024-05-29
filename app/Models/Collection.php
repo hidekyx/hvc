@@ -28,6 +28,14 @@ class Collection extends Model
     // ACCESSORS
     public static function getHighlight($id_collection)
     {
-        return self::where('id_collection', $id_collection)->first();
+        $highlight = self::where('id_collection', $id_collection)->first();
+
+        if($highlight) {
+            return $highlight;
+        }
+        else { 
+            $highlight = new Collection();
+            return $highlight;
+        }
     }
 }
