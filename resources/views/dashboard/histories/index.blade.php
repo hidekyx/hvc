@@ -49,7 +49,7 @@
                                         <span class="text-secondary">{{ $d->category }}</span>
                                     </td>
                                     <td class="text-secondary">
-                                        {!! Str::limit($d->description, 1000) !!}
+                                        {!! Str::limit($d->description, 800) !!}
                                     </td>
                                     <td class="text-secondary">
                                         @if(Storage::exists('public/history/'.$d->img_1) && $d->img_1)
@@ -86,7 +86,7 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Delete: <b>{{ $d->name }} (ID: {{ $d->id_id_history }})</b><br>
+                                                        Delete: <b>{{ $d->name }} (ID: {{ $d->id_history }})</b><br>
                                                         @if(Storage::exists('public/history/'.$d->img_1) && $d->img_1)
                                                             <img src="{{ asset('storage/history/'.$d->img_1) }}" style="max-height: 120px; max-width: 120px;" class="mt-2">
                                                         @endif

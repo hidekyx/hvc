@@ -33,6 +33,7 @@ Route::get('/our-collection/national', [CollectionController::class, 'national']
 Route::get('/our-collection/international', [CollectionController::class, 'international']);
 
 Route::get('/history/{category}', [HistoryController::class, 'grid']);
+Route::get('/history/{category}/detail/{idHistory}', [HistoryController::class, 'detail']);
 
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::post('/profile-update/{idUser}', [ProfileController::class, 'profileUpdate']);

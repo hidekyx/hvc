@@ -24,6 +24,7 @@
 <link href="{{ asset('back-assets/vendor/izitoast/css/iziToast.min.css') }}" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.18/dist/sweetalert2.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/tagify/3.22.1/tagify.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
 <link href="{{ asset('back-assets/css/style.css') }}" rel="stylesheet">
 </head>
 
@@ -50,6 +51,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/3.22.1/tagify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
 @stack('scripts')
 
 <script src="{{ asset('back-assets/js/main.js') }}"></script>

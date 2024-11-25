@@ -147,3 +147,19 @@
     background-color: #fff !important;
     color: #000 !important;
 }
+
+.main-image {
+    margin-top: 60px;
+    padding-right: 80px;
+}
+
+.secondary-image-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+}
+
+.history-description div, .history-description li {
+    font-size: 20px !important;
+}

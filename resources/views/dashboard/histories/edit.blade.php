@@ -45,14 +45,14 @@
                             <div class="row mb-3">
                                 <label for="description" class="col-lg-2 col-form-label">Description</label>
                                 <div class="col-lg-10">
-                                    <textarea name="description" class="form-control" id="description" rows="4" required>{{ $data->description }}</textarea>
+                                    <textarea id="summernote" name="description" class="form-control" id="description" rows="4" required>{{ $data->description }}</textarea>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="size" class="col-lg-2 col-form-label">Collection</label>
                                 <div class="col-lg-10">
-                                    <select class="form-select" name="size[]" id="size" multiple>
+                                <select class="form-select" size="8" name="id_collection[]" id="id_collection" multiple>
                                         @foreach($collection as $c)
                                         <option value="{{ $c->id_collection }}">{{ $c->name }}</option>
                                         @endforeach
@@ -176,3 +176,16 @@
 
 </main>
 @endsection
+
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['para', ['ul', 'ol']],
+            ]
+        });
+    });
+</script>
+@endpush

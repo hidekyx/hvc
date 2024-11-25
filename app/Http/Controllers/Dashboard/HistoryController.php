@@ -95,10 +95,12 @@ class HistoryController extends Controller
 
                 $history->save();
 
-                foreach($request->get('id_collection') as $idCollection) {
-                    $collection = Collection::findOrFail($idCollection);
-                    $collection->id_history = $history->id_history;
-                    $collection->save();
+                if($request->get('id_collection')) {
+                    foreach($request->get('id_collection') as $idCollection) {
+                        $collection = Collection::findOrFail($idCollection);
+                        $collection->id_history = $history->id_history;
+                        $collection->save();
+                    }
                 }
 
                 Session::flash('success', 'History stored');
@@ -178,6 +180,14 @@ class HistoryController extends Controller
                 }
 
                 $history->save();
+
+                if($request->get('id_collection')) {
+                    foreach($request->get('id_collection') as $idCollection) {
+                        $collection = Collection::findOrFail($idCollection);
+                        $collection->id_history = $history->id_history;
+                        $collection->save();
+                    }
+                }
 
                 Session::flash('success', 'History updated');
                 return redirect('/dashboard/histories');
