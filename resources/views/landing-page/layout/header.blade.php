@@ -48,6 +48,13 @@
                                     <li><a href="{{ asset('/our-collection/international') }}" style="font-size: 20px;">International</a></li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a href="#" class="{{ $page == 'History' ? 'menu-active' : ''}}">History</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ asset('/history/national') }}" style="font-size: 20px;">National</a></li>
+                                    <li><a href="{{ asset('/history/international') }}" style="font-size: 20px;">International</a></li>
+                                </ul>
+                            </li>
                             <li><a class="{{ $page == 'Shop' ? 'menu-active' : ''}}">Shop</a></li>
                         </ul>
                     </nav>

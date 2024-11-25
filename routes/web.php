@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\CollectionController as DashboardCollectionController;
 use App\Http\Controllers\Dashboard\CourierSettingController;
+use App\Http\Controllers\Dashboard\HistoryController as DashboardHistoryController;
 use App\Http\Controllers\Dashboard\PageSettingController;
 use App\Http\Controllers\Dashboard\PaymentSettingController;
 use App\Http\Controllers\Dashboard\ReviewController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Dashboard\TransactionController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\LandingPage\AuthController;
 use App\Http\Controllers\LandingPage\CollectionController;
+use App\Http\Controllers\LandingPage\HistoryController;
 use App\Http\Controllers\LandingPage\HomeController;
 use App\Http\Controllers\LandingPage\ProfileController;
 use App\Http\Controllers\LandingPage\ShopController;
@@ -29,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/our-collection/national', [CollectionController::class, 'national']);
 Route::get('/our-collection/international', [CollectionController::class, 'international']);
+
+Route::get('/history/{category}', [HistoryController::class, 'grid']);
 
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::post('/profile-update/{idUser}', [ProfileController::class, 'profileUpdate']);
@@ -68,6 +72,13 @@ Route::post('/dashboard/collections/store', [DashboardCollectionController::clas
 Route::get('/dashboard/collections/edit/{idCollection}', [DashboardCollectionController::class, 'edit']);
 Route::post('/dashboard/collections/update/{idCollection}', [DashboardCollectionController::class, 'update']);
 Route::post('/dashboard/collections/delete/{idCollection}', [DashboardCollectionController::class, 'delete']);
+
+Route::get('/dashboard/histories', [DashboardHistoryController::class, 'index']);
+Route::get('/dashboard/histories/create', [DashboardHistoryController::class, 'create']);
+Route::post('/dashboard/histories/store', [DashboardHistoryController::class, 'store']);
+Route::get('/dashboard/histories/edit/{idHistory}', [DashboardHistoryController::class, 'edit']);
+Route::post('/dashboard/histories/update/{idHistory}', [DashboardHistoryController::class, 'update']);
+Route::post('/dashboard/histories/delete/{idHistory}', [DashboardHistoryController::class, 'delete']);
 
 Route::get('/dashboard/transactions', [TransactionController::class, 'index']);
 Route::get('/dashboard/transactions/deliver/{idTransaction}', [TransactionController::class, 'deliver']);

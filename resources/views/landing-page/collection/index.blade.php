@@ -14,7 +14,6 @@
             </div>
             @endforeach
         </div>
-
         <div class="pagination-custom">
             {{ $collection->links() }}
         </div>
@@ -25,7 +24,7 @@
     <div class="container text-center">
         <h1 class="mb-5">What They Said</h1>
         <div class="row">
-            @foreach($review as $r)
+            @forelse($review as $r)
             <div class="col-lg-4">
                 <div class="team-member" style="background-color: #a8a8a8; padding: 20px; border-radius: 10px;">
                     <div class="team-image">
@@ -43,7 +42,11 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="col-12">
+                <h2>No Review Yet</h2>
+            </div>
+            @endforelse
         </div>
     </div>
     </div>

@@ -3,6 +3,7 @@
         <li class="nav-heading">Data Management</li>
         <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/users') }}"><i class="bi bi-people"></i><span>Users</span></a></li>
         <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/collections') }}"><i class="bi bi-boxes"></i><span>Collections</span></a></li>
+        <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/histories') }}"><i class="bi bi-book"></i><span>Histories</span></a></li>
         <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/transactions') }}"><i class="bi bi-receipt"></i><span>Transactions</span></a></li>
         <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/reviews') }}"><i class="bi bi-star"></i><span>Reviews</span></a></li>
         <li class="nav-heading">Settings</li>

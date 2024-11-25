@@ -4,16 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Collection extends Model
+class History extends Model
 {
-    protected $table = "collection";
-    protected $primaryKey = 'id_collection';
+    protected $table = "history";
+    protected $primaryKey = 'id_history';
 
     protected $fillable = [
-        'id_history',
         'name',
-        'price',
-        'stock',
         'category',
         'description',
         'img_1',
@@ -21,6 +18,10 @@ class Collection extends Model
         'img_3',
         'img_4',
     ];
+
+    // RELATION
+
+    // SCOPE   
 
     // ACCESSORS
     public static function getHighlight($id_collection)
