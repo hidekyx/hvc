@@ -14,12 +14,4 @@ class Content extends Model
         'key',
         'value',
     ];
-
-    // RELATION
-    // public function highlight()
-    // {
-    //     return $this->belongsTo(Collection::class, 'home_highlight');
-    // }
-
-    // SCOPE   
 }

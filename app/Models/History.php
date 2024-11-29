@@ -18,22 +18,4 @@ class History extends Model
         'img_3',
         'img_4',
     ];
-
-    // RELATION
-
-    // SCOPE   
-
-    // ACCESSORS
-    public static function getHighlight($id_collection)
-    {
-        $highlight = self::where('id_collection', $id_collection)->first();
-
-        if($highlight) {
-            return $highlight;
-        }
-        else { 
-            $highlight = new Collection();
-            return $highlight;
-        }
-    }
 }

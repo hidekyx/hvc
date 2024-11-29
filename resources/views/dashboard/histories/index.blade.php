@@ -113,6 +113,12 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <a href="{{ asset('/dashboard/histories/quiz/'.$d->id_history) }}">
+                                            <button type="button" class="btn btn-info btn-sm text-white rounded-pill mb-2">
+                                                <b><i class="bi bi-question-diamond"></i> </b>
+                                            </button>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach

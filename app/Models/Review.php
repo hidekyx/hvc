@@ -35,6 +35,4 @@ class Review extends Model
     {
         return $this->belongsTo(Collection::class, 'id_collection', 'id_collection');
     }
-
-    // SCOPE   
 }

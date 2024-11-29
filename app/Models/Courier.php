@@ -13,8 +13,4 @@ class Courier extends Model
         'name',
         'price',
     ];
-
-    // RELATION
-
-    // SCOPE   
 }

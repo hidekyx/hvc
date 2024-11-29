@@ -15,8 +15,4 @@ class Payment extends Model
         'account_number',
         'account_qris',
     ];
-
-    // RELATION
-
-    // SCOPE   
 }

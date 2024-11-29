@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\CourierSettingController;
 use App\Http\Controllers\Dashboard\HistoryController as DashboardHistoryController;
 use App\Http\Controllers\Dashboard\PageSettingController;
 use App\Http\Controllers\Dashboard\PaymentSettingController;
+use App\Http\Controllers\Dashboard\QuizController;
 use App\Http\Controllers\Dashboard\ReviewController;
 use App\Http\Controllers\Dashboard\TransactionController;
 use App\Http\Controllers\Dashboard\UserController;
@@ -80,6 +81,13 @@ Route::post('/dashboard/histories/store', [DashboardHistoryController::class, 's
 Route::get('/dashboard/histories/edit/{idHistory}', [DashboardHistoryController::class, 'edit']);
 Route::post('/dashboard/histories/update/{idHistory}', [DashboardHistoryController::class, 'update']);
 Route::post('/dashboard/histories/delete/{idHistory}', [DashboardHistoryController::class, 'delete']);
+
+Route::get('/dashboard/histories/quiz/{idHistory}', [QuizController::class, 'index']);
+Route::get('/dashboard/histories/quiz/{idHistory}/create', [QuizController::class, 'create']);
+Route::post('/dashboard/histories/quiz/{idHistory}/store', [QuizController::class, 'store']);
+Route::get('/dashboard/histories/quiz/{idHistory}/edit/{idQuizQuestion}', [QuizController::class, 'edit']);
+Route::post('/dashboard/histories/quiz/{idHistory}/update/{idQuizQuestion}', [QuizController::class, 'update']);
+Route::post('/dashboard/histories/quiz/{idHistory}/delete/{idQuizQuestion}', [QuizController::class, 'delete']);
 
 Route::get('/dashboard/transactions', [TransactionController::class, 'index']);
 Route::get('/dashboard/transactions/deliver/{idTransaction}', [TransactionController::class, 'deliver']);
