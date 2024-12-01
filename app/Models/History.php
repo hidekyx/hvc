@@ -18,4 +18,10 @@ class History extends Model
         'img_3',
         'img_4',
     ];
+     
+    // RELATION
+    public function question()
+    {
+        return $this->hasMany(QuizQuestion::class, 'id_quiz_question');
+    }
 }

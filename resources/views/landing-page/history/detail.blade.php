@@ -28,6 +28,11 @@
                         <div class="seperator m-t-20 m-b-10"></div>
                         <div class="history-description">{!! $history->description !!}</div>
                     </div>
+                    @if($history->quiz_enabled == TRUE && $question->isNotEmpty())
+                    <a href="{{ asset('/quiz/'.$history->id_history) }}">
+                        <button type="button" class="btn btn-roundeded btn-dark" style="font-size: 20px;">Quiz</button>
+                    </a>
+                    @endif
                 </div>  
             </div>
         </div>
@@ -58,36 +63,3 @@
         </div>
 </section>
 @endsection
-
-@push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const minusButton = document.querySelector('.minus');
-        const plusButton = document.querySelector('.plus');
-        const qtyInput = document.querySelector('.qty');
-
-        minusButton.addEventListener('click', () => {
-            let currentValue = parseInt(qtyInput.value);
-            if (currentValue > parseInt(qtyInput.min)) {
-                qtyInput.value = currentValue - 1;
-            }
-        });
-
-        plusButton.addEventListener('click', () => {
-            let currentValue = parseInt(qtyInput.value);
-            if (currentValue < parseInt(qtyInput.max)) {
-                qtyInput.value = currentValue + 1;
-            }
-        });
-
-        qtyInput.addEventListener('input', () => {
-            let currentValue = parseInt(qtyInput.value);
-            if (currentValue < parseInt(qtyInput.min)) {
-                qtyInput.value = qtyInput.min;
-            } else if (currentValue > parseInt(qtyInput.max)) {
-                qtyInput.value = qtyInput.max;
-            }
-        });
-    });
-</script>
-@endpush

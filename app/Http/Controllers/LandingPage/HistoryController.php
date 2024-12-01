@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Collection;
 use App\Models\Content;
 use App\Models\History;
+use App\Models\QuizQuestion;
 use Illuminate\View\View;
 
 class HistoryController extends Controller
@@ -32,8 +33,20 @@ class HistoryController extends Controller
             'content' => Content::pluck('value', 'key')->toArray(),
             'collection' => $collection,
             'history' => $history,
+            'question' => QuizQuestion::where('id_history', $idHistory)->get(),
         ];
 
         return view('landing-page.history.detail')->with($view);
+    }
+
+    public function quiz($idHistory): View
+    {
+        $view = [
+            'page' => 'Quiz',
+            'content' => Content::pluck('value', 'key')->toArray(),
+            'question' => QuizQuestion::where('id_history', $idHistory)->get(),
+        ];
+
+        return view('landing-page.history.quiz')->with($view);
     }
 }

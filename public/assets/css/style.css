@@ -12626,14 +12626,14 @@ form label button {
 }
 
 .is-invalid~label {
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
 }
 
 .is-invalid:not(.form-control):not([type="checkbox"]) {
-    display: block;
+    /* display: block;
     clear: both;
     width: 100%;
-    font-size: 0.875rem;
+    font-size: 0.875rem; */
 }
 
 .form-no-border .form-control,
@@ -13217,7 +13217,7 @@ a.btn:not([href]):not([tabindex]) {
     display: inline-block;
     font-family: inherit;
     border-radius: 0.42rem 0.42rem 0.42rem 0.42rem;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: .5px;
     text-decoration: none;
@@ -13225,8 +13225,8 @@ a.btn:not([href]):not([tabindex]) {
     padding: 12px 18px;
     position: relative;
     text-transform: uppercase;
-    background-color: #2250fc;
-    border-color: #2250fc;
+    background-color: #1e2022;
+    border-color: #1e2022;
     border-width: 1px;
     border-style: solid;
     color: #fff;
@@ -20786,7 +20786,7 @@ body[data-bg-image] {
 .wizard>.steps ul li.current a,
 .wizard>.steps ul li.current a:hover,
 .wizard>.steps ul li.current a:active {
-    background: #2250fc;
+    background: #1e2022;
     color: #fff;
 }
 

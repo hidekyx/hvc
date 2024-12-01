@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/glightbox/glightbox.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/jquery-steps/jquery.steps.css') }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +37,7 @@
     <script src="{{ asset('assets/js/plugins.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>
     <script src="{{ asset('assets/plugins/glightbox/glightbox.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/plugins/validate/validate.min.js') }}"></script>
     @stack('scripts')
