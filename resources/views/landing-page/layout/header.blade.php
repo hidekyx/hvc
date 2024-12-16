@@ -41,20 +41,8 @@
                     <nav>
                         <ul>
                             <li><a href="{{ asset('/') }}" class="{{ $page == 'Home' ? 'menu-active' : ''}}">Home</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="{{ $page == 'Our Collection' ? 'menu-active' : ''}}">Our Collection</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ asset('/our-collection/national') }}" style="font-size: 20px;">National</a></li>
-                                    <li><a href="{{ asset('/our-collection/international') }}" style="font-size: 20px;">International</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="{{ $page == 'History' ? 'menu-active' : ''}}">History</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ asset('/history/national') }}" style="font-size: 20px;">National</a></li>
-                                    <li><a href="{{ asset('/history/international') }}" style="font-size: 20px;">International</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{ asset('/our-collection/national') }}" class="{{ $page == 'Our Collection' ? 'menu-active' : ''}}">Our Collection</a></li>
+                            <li><a href="{{ asset('/history/national') }}" class="{{ $page == 'History' ? 'menu-active' : ''}}">History</a></li>
                             <li><a class="{{ $page == 'Shop' ? 'menu-active' : ''}}">Shop</a></li>
                         </ul>
                     </nav>

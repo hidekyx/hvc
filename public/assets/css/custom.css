@@ -163,3 +163,15 @@
 .history-description div, .history-description li {
     font-size: 20px !important;
 }
+
+.wizard-content .h5 {
+    font-size: 28px !important;
+}
+
+.wizard-content .answer {
+    font-weight: bold;
+}
+
+.wizard-content p {
+    font-size: 20px !important;
+}

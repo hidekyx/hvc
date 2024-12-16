@@ -7,7 +7,10 @@ use App\Models\Collection;
 use App\Models\Content;
 use App\Models\History;
 use App\Models\QuizQuestion;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class HistoryController extends Controller
 {
@@ -39,14 +42,34 @@ class HistoryController extends Controller
         return view('landing-page.history.detail')->with($view);
     }
 
-    public function quiz($idHistory): View
+    public function quiz($idHistory)
     {
-        $view = [
-            'page' => 'Quiz',
-            'content' => Content::pluck('value', 'key')->toArray(),
-            'question' => QuizQuestion::where('id_history', $idHistory)->get(),
-        ];
+        if (Auth::check()) {
+            $history = History::findOrFail($idHistory);
 
-        return view('landing-page.history.quiz')->with($view);
+            $view = [
+                'page' => 'Quiz',
+                'history' => $history,
+                'content' => Content::pluck('value', 'key')->toArray(),
+                'question' => QuizQuestion::where('id_history', $idHistory)->get(),
+            ];
+
+            return view('landing-page.history.quiz')->with($view);
+        } else {
+            Session::flash('error', 'You need to be logged in first');
+            return redirect('/login');
+        }
+    }
+
+    public function quizSubmit(Request $request)
+    {
+        if (Auth::check()) {
+            dd($request->all());
+
+            // return view('landing-page.history.quiz')->with($view);
+        } else {
+            Session::flash('error', 'You need to be logged in first');
+            return redirect('/login');
+        }
     }
 }
