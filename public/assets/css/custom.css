@@ -175,3 +175,33 @@
 .wizard-content p {
     font-size: 20px !important;
 }
+
+.modal-title {
+    font-size: 32px !important;
+}
+
+.quiz-result-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 85%;
+    height: auto;
+    object-fit: contain;
+}
+
+.quiz-result-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.quiz-result-text h4, .quiz-result-text h1, .quiz-result-text h3 {
+    color: #fff !important;
+}

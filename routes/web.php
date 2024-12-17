@@ -35,8 +35,8 @@ Route::get('/our-collection/international', [CollectionController::class, 'inter
 
 Route::get('/history/{category}', [HistoryController::class, 'grid']);
 Route::get('/history/{category}/detail/{idHistory}', [HistoryController::class, 'detail']);
+Route::post('/quiz/submit/{idHistory}/{idQuizSession}', [HistoryController::class, 'quizSubmit']);
 Route::get('/quiz/{idHistory}', [HistoryController::class, 'quiz']);
-Route::post('/quiz/{idHistory}/submit', [HistoryController::class, 'quizSubmit']);
 
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::post('/profile-update/{idUser}', [ProfileController::class, 'profileUpdate']);

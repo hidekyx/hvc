@@ -48,6 +48,29 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="summary-modal" tabindex="-1" role="modal" data-bs-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Quiz Result</h4>
+            </div>
+            <div class="modal-body" style="height: 70vh; position: relative;">
+                <img src="{{ asset('images/quiz-result.png') }}" class="quiz-result-image">
+                <div class="quiz-result-text">
+                    <h3 class="mb-0">Your score</h3>
+                    <h1 class="my-0 py-0" style="font-size: 10rem;" id="result-score">-</h1>
+                    <h4 id="result-text" class="mb-0">-</h4>
+                    <h4 id="result-voucher">-</h4>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ asset('/history/'.strtolower($history->category).'/detail/'.$history->id_history) }}"><button class="btn btn-b" type="button">Close</button></a>
+                <a href="#"><button class="btn btn-b" type="button">Voucher List</button></a>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('scripts')
@@ -74,7 +97,7 @@
         }
     });
 
-    $('input[type="radio"]').on('change', function () {
+    $('input[type="radio"]').on('change', function() {
         const selectedAnswer = $(this).next('label').text();
         const questionId = $(this).attr('id').split('-').slice(0, 2).join('-');
         $('#summary-' + questionId).text(selectedAnswer);
@@ -95,11 +118,12 @@
     });
     $('.wizard').find(".actions ul > li > a").addClass("btn");
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         let counter = $('#counter');
-        let countdown = 120;
+        let countdown = 10;
+        let timerExpired = false;
 
-        let interval = setInterval(function () {
+        let interval = setInterval(function() {
             if (countdown > 0) {
                 countdown--;
                 counter.text(countdown);
@@ -115,7 +139,7 @@
 
     function submitForm() {
         const formData = wizard7.serialize();
-        const url = '/quiz/{{ $history->id_history }}/submit';
+        const url = '/quiz/submit/{{ $history->id_history }}/{{ $session->id_quiz_session }}';
 
         $.ajax({
             type: "POST",
@@ -123,7 +147,15 @@
             data: formData,
             success: function(response) {
                 INSPIRO.elements.notification("Success", "Your answers have been submitted successfully!", "success");
-                window.location.href = response.redirect;
+                $('#summary-modal').modal('show');
+                $('#result-score').text(response.score);
+                if (response.score == 100) {
+                    $('#result-text').text('Selamat anda mendapatkan voucher');
+                    $('#result-voucher').text(response.voucher.category);
+                } else {
+                    $('#result-text').text('Maaf anda belum beruntung');
+                    $('#result-voucher').text('Silahkan coba quiz lagi besok');
+                }
             },
             error: function(xhr) {
                 console.error("Submission failed:", xhr.responseText);
