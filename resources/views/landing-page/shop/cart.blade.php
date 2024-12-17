@@ -133,6 +133,31 @@
                         <table class="table" style="font-size: 20px;">
                             <thead>
                                 <tr class="table-dark">
+                                    <th colspan="2" class="text-center">Voucher</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <select name="id_voucher" id="voucher-options" class="form-select" style="font-size: 20px;" required>
+                                            <option selected disabled hidden>Select Voucher</option>
+                                            @foreach($voucher as $v)
+                                            <option data-voucher-category="{{ $v->category }}" value="{{ $v->id_voucher }}">{{ $v->category }}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Voucher</td>
+                                    <td class="voucher-category">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table table-sm table-striped table-responsive" style="border: 1px solid #dedede;">
+                        <table class="table" style="font-size: 20px;">
+                            <thead>
+                                <tr class="table-dark">
                                     <th colspan="2" class="text-center">Checkout</th>
                                 </tr>
                             </thead>
@@ -144,6 +169,13 @@
                                 <tr>
                                     <td>Product Cost</td>
                                     <td id="product-cost" data-product-cost="0">Rp. -</td>
+                                </tr>
+                                <tr>
+                                    <td>Voucher</td>
+                                    <td>
+                                        <div class="voucher-category"></div>
+                                        <div id="voucher-cost">Rp. -</div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>
@@ -186,7 +218,16 @@
         const calculateTotalCost = () => {
             let deliveryCost = parseFloat($('#delivery-options').find(':selected').data('courier-price')) || 0;
             let productCost = parseFloat($('#product-cost').data('product-cost')) || 0;
-            let totalCost = deliveryCost + productCost;
+            let voucher = $('#voucher-options').find(':selected').data('voucher-category');
+            let voucherCost = 0;
+            if (voucher == "Diskon 5 Persen") {
+                voucherCost = productCost * 0.05;
+                $('#voucher-cost').text('Rp. -' + voucherCost.toLocaleString('en-US'));
+            } else if (voucher == "Gratis Ongkir") {
+                voucherCost = deliveryCost;
+                $('#voucher-cost').text('Rp. -' + voucherCost.toLocaleString('en-US'));
+            }
+            let totalCost = deliveryCost + productCost - voucherCost;
             $('#total-cost').text('Rp. ' + totalCost.toLocaleString('en-US'));
         };
 
@@ -231,6 +272,12 @@
         $('#delivery-options').change(function() {
             let deliveryCost = parseFloat($(this).find(':selected').data('courier-price'));
             $('#delivery-cost').text('Rp. ' + deliveryCost.toLocaleString('en-US'));
+            calculateTotalCost();
+        });
+
+        $('#voucher-options').change(function() {
+            let voucher = $(this).find(':selected').data('voucher-category');
+            $('.voucher-category').text(voucher);
             calculateTotalCost();
         });
 

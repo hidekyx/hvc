@@ -53,10 +53,18 @@
                                             <br>
                                         @endforeach
                                     </td>
-                                    <td>{{ $t->courier->name }} (Rp. {{ number_format($t->courier->price) }})</td>
+                                    <td>
+                                        {{ $t->courier->name }} (Rp. {{ number_format($t->courier->price) }})
+                                        @if($t->voucher && $t->voucher->category == "Gratis Ongkir")
+                                        <br><span style="font-size: 16px;">Voucher ({{ $t->voucher->category }})<span>
+                                        @endif
+                                    </td>
                                     <td>
                                         {{ $t->payment->name }}
                                         <p class="mb-0" style="font-size: 24px; font-weight: 600;">Rp. {{ number_format($t->total) }}</p>
+                                        @if($t->voucher && $t->voucher->category == "Diskon 5 Persen")
+                                        <span style="font-size: 16px;">Voucher ({{ $t->voucher->category }})<span>
+                                        @endif
                                     </td>
                                     <td>
                                         @if($t->status == "Payment")

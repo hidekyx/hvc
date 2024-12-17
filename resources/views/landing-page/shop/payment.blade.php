@@ -29,10 +29,18 @@
                                         {{ $d->collection->name }}, {{ $d->color }}, {{ $d->size }} x{{ $d->quantity }} = Rp. {{ number_format($d->collection->price * $d->quantity) }}<br>
                                         @endforeach
                                     </td>
-                                    <td>{{ $transaction->courier->name }} (Rp. {{ number_format($transaction->courier->price) }})</td>
+                                    <td>
+                                        {{ $transaction->courier->name }} (Rp. {{ number_format($transaction->courier->price) }})
+                                        @if($transaction->voucher && $transaction->voucher->category == "Gratis Ongkir")
+                                        <br><span style="font-size: 16px;">Voucher ({{ $transaction->voucher->category }})<span>
+                                        @endif
+                                    </td>
                                     <td>{{ $transaction->payment->name }}</td>
                                     <td>
                                         <p class="mb-0" style="font-size: 24px; font-weight: 600;">Rp. {{ number_format($transaction->total) }}</p>
+                                        @if($transaction->voucher && $transaction->voucher->category == "Diskon 5 Persen")
+                                        <span style="font-size: 16px;">Voucher ({{ $transaction->voucher->category }})<span>
+                                        @endif
                                     </td>
                                 </tr>
                             </tbody>

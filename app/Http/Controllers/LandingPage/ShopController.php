@@ -12,6 +12,7 @@ use App\Models\Payment;
 use App\Models\Review;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
+use App\Models\Voucher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
@@ -53,6 +54,7 @@ class ShopController extends Controller
                 'cart' => Cart::where('id_user', Auth::id())->waiting()->orderByDesc('updated_at')->get(),
                 'courier' => Courier::get(),
                 'payment' => Payment::get(),
+                'voucher' => Voucher::where('id_user', Auth::id())->where('status', 'Unused')->get(),
             ];
 
             return view('landing-page.shop.cart')->with($view);
@@ -152,9 +154,20 @@ class ShopController extends Controller
 
             $deliveryCost = Courier::findOrFail($request->get('id_courier'))->price;
 
+            $voucherCost = 0;
+            $voucher = Voucher::where('id_voucher', $request->get('id_voucher'))->where('id_user', Auth::id())->where('status', 'Unused')->firstOrFail();
+            $voucher->status = "Used";
+            $voucher->save();
+            if ($voucher->category == "Diskon 5 Persen") {
+                $voucherCost = $total * 0.05;
+            } else if ($voucher->category == "Gratis Ongkir") {
+                $voucherCost = $deliveryCost;
+            }
+
             $transaction = new Transaction($request->all());
             $transaction->id_user = Auth::id();
-            $transaction->total = $total + $deliveryCost;
+            $transaction->id_voucher = $voucher->id_voucher;
+            $transaction->total = $total + $deliveryCost - $voucherCost;
             $transaction->status = "Payment";
             $transaction->save();
 

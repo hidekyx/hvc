@@ -13,6 +13,7 @@ class Transaction extends Model
         'id_user',
         'id_courier',
         'id_payment',
+        'id_voucher',
         'status',
         'address',
         'receipt',
@@ -41,6 +42,11 @@ class Transaction extends Model
     public function payment()
     {
         return $this->belongsTo(Payment::class, 'id_payment', 'id_payment');
+    }
+
+    public function voucher()
+    {
+        return $this->belongsTo(Voucher::class, 'id_voucher', 'id_voucher');
     }
 
     // SCOPE
