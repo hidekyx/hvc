@@ -6,6 +6,7 @@
         <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/histories') }}"><i class="bi bi-book"></i><span>Histories</span></a></li>
         <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/transactions') }}"><i class="bi bi-receipt"></i><span>Transactions</span></a></li>
         <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/reviews') }}"><i class="bi bi-star"></i><span>Reviews</span></a></li>
+        <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/vouchers') }}"><i class="bi bi-cash"></i><span>Vouchers</span></a></li>
         <li class="nav-heading">Settings</li>
         <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/payment-setting') }}"><i class="bi bi-credit-card"></i><span>Payment Setting</span></a></li>
         <li class="nav-item"><a class="nav-link collapsed" href="{{ asset('/dashboard/courier-setting') }}"><i class="bi bi-truck"></i><span>Courier Setting</span></a></li>

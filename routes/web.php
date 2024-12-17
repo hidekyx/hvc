@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\QuizController;
 use App\Http\Controllers\Dashboard\ReviewController;
 use App\Http\Controllers\Dashboard\TransactionController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\VoucherController;
 use App\Http\Controllers\LandingPage\AuthController;
 use App\Http\Controllers\LandingPage\CollectionController;
 use App\Http\Controllers\LandingPage\HistoryController;
@@ -95,6 +96,8 @@ Route::get('/dashboard/transactions', [TransactionController::class, 'index']);
 Route::get('/dashboard/transactions/deliver/{idTransaction}', [TransactionController::class, 'deliver']);
 
 Route::get('/dashboard/reviews', [ReviewController::class, 'index']);
+
+Route::get('/dashboard/vouchers', [VoucherController::class, 'index']);
 
 Route::get('/dashboard/payment-setting', [PaymentSettingController::class, 'index']);
 Route::get('/dashboard/payment-setting/create', [PaymentSettingController::class, 'create']);
