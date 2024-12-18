@@ -45,7 +45,7 @@
             <h4>Collections To Buy</h4>
         </div>
         <div class="row">
-            @foreach($collection as $c)
+            @forelse($collection as $c)
             <div class="col-lg-3">
                 <div class="widget-shop">
                     <div class="product w-100" style="border: 1px solid #bebebe; border-radius: 10px; padding: 10px;">
@@ -59,7 +59,11 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="col-lg-12">
+                <h4>No collections yet</h4>
+            </div>
+            @endforelse
         </div>
 </section>
 @endsection

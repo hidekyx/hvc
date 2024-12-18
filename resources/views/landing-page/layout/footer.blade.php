@@ -15,7 +15,6 @@
                         <div class="widget-title" style="font-size: 24px;">Products</div>
                         <ul class="list">
                             <li><a href="#" style="font-size: 22px;">National</a></li>
-                            <li><a href="#" style="font-size: 22px;">International</a></li>
                         </ul>
                     </div>
                 </div>

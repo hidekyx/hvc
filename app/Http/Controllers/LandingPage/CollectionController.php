@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Collection;
 use App\Models\Content;
 use App\Models\Review;
+use App\Models\TransactionDetail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class CollectionController extends Controller
@@ -18,6 +20,10 @@ class CollectionController extends Controller
             'content' => Content::pluck('value', 'key')->toArray(),
             'collection' => Collection::where('category', 'National')->orderByDesc('id_collection')->paginate(6),
             'review' => Review::orderByDesc('id_review')->limit(3)->get(),
+            'bestSellers' => TransactionDetail::select('id_collection', DB::raw('COUNT(*) as total'))
+                ->whereHas('transaction', function ($query) {
+                    $query->where('status', "Finished");
+                })->groupBy('id_collection')->orderByDesc('total')->take(6)->get(),
         ];
 
         return view('landing-page.collection.index')->with($view);

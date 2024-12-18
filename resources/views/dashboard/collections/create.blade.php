@@ -51,7 +51,6 @@
                                 <div class="col-lg-10">
                                     <select class="form-select" name="category" id="category" required>
                                         <option value="National">National</option>
-                                        <option value="International">International</option>
                                     </select>
                                 </div>
                             </div>

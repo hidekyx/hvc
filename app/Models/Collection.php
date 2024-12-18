@@ -31,8 +31,7 @@ class Collection extends Model
             return $highlight;
         }
         else { 
-            $highlight = new Collection();
-            return $highlight;
+            return null;
         }
     }
 }

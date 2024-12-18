@@ -1,9 +1,10 @@
 @extends('landing-page.layout.app')
 
 @section('content')
-<section style="background-color: #ffffff;">
+<section style="background-color: #ffffff; min-height: 45vh">
     <div class="container text-center">
-        <h1>{{ $category }} Histories</h1>
+        <h1 class="mb-0">{{ $category }} Histories</h1>
+        @if(count($history))
         <div class="row mb-5">
             @foreach ($history as $h)
             <div class="col-lg-4 mb-5">
@@ -16,6 +17,11 @@
         <div class="pagination-custom">
             {{ $history->links() }}
         </div>
+        @else
+        <div class="text-center">
+            <h4>No histories yet</h4>
+        </div>
+        @endif
     </div>
 </section>
 @endsection

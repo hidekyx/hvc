@@ -116,10 +116,22 @@
     bottom: 35%;
 }
 
+.collection-home-image {
+    height: 300px !important;
+    object-fit: cover;
+    width: 100% !important;
+}
+
 .collection-image {
     height: 300px !important;
     object-fit: cover;
     max-width: 235px;
+}
+
+.best-seller-image {
+    height: 300px !important;
+    object-fit: cover;
+    width: 100%;
 }
 
 .review-image {

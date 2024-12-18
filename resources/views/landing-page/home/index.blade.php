@@ -18,6 +18,7 @@
                             </div>
                         </div>
                     </div>
+                    @if(App\Models\Collection::getHighlight($content['home_highlight']))
                     <div class="testimonial-item">
                         <div class="row">
                             <div class="col-lg-6">
@@ -33,6 +34,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -42,11 +44,12 @@
     <div class="shape-divider" data-style="6" data-position="top" data-flip-vertical="true"></div>
     <div class="container">
         <h1 class="text-center text-white mb-5">OUR COLLECTION</h1>
+        @if(count($collection))
         <div class="carousel team-members team-members-shadow" data-items="3">
             @foreach ($collection as $c)
             <div class="team-member" style="background-color: #313131;">
                 <div class="team-image">
-                    <img src="{{ asset('storage/collection/'.$c->img_1) }}" class="collection-image">
+                    <img src="{{ asset('storage/collection/'.$c->img_1) }}" class="collection-home-image">
                 </div>
                 <div class="team-desc">
                     <h2 class="text-light">{{ $c->name }}</h2>
@@ -58,6 +61,11 @@
             </div>
             @endforeach
         </div>
+        @else
+        <div class="text-center">
+            <h4>No collections yet</h4>
+        </div>
+        @endif
     </div>
 </section>
 @endsection
