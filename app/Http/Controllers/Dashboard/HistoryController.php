@@ -17,7 +17,7 @@ class HistoryController extends Controller
             if (Auth::user()->role == "Admin") {
                 $view = [
                     'page' => 'Histories Management',
-                    'data' => History::get(),
+                    'data' => History::orderByDesc('id_history')->get(),
                 ];
 
                 return view('dashboard.histories.index')->with($view);

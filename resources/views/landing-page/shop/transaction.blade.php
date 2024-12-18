@@ -46,7 +46,9 @@
                                     <td>
                                         @foreach($t->detail as $d)
                                             @if($t->status == "Finished")
-                                                <a href="{{ asset('/review/'.$d->id_transaction_detail) }}"><button class="btn btn-warning mb-2 p-2" style="font-size: 14px;" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Click to review this item" data-bs-original-title="" title="">{{ $d->collection->name }}, {{ $d->color }}, {{ $d->size }} x{{ $d->quantity }} = Rp. {{ number_format($d->collection->price * $d->quantity) }}</button></a>
+                                                <a href="{{ asset('/review/'.$d->id_transaction_detail) }}">
+                                                    <button class="btn btn-warning mb-2 p-2" style="font-size: 14px;" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Click to review this item" data-bs-original-title="" title="">{{ $d->collection->name }}, {{ $d->color }}, {{ $d->size }} x{{ $d->quantity }} = Rp. {{ number_format($d->collection->price * $d->quantity) }}</button>
+                                                </a>
                                             @else
                                                 <span class="badge bg-dark mb-2">{{ $d->collection->name }}, {{ $d->color }}, {{ $d->size }} x{{ $d->quantity }} = Rp. {{ number_format($d->collection->price * $d->quantity) }}</span>
                                             @endif

@@ -16,7 +16,7 @@ class CourierSettingController extends Controller
             if (Auth::user()->role == "Admin") {
                 $view = [
                     'page' => 'Courier Setting',
-                    'data' => Courier::get(),
+                    'data' => Courier::orderByDesc('id_courier')->get(),
                 ];
 
                 return view('dashboard.courier-setting.index')->with($view);

@@ -44,18 +44,18 @@
                                         {{ $key+1 }}
                                     </th>
                                     <td>
-                                        <span class="text-secondary">Checkout: </span>{{ Carbon\Carbon::parse($d->created_at)->isoFormat('D MMMM Y - H:m') }}
+                                        <span class="text-secondary">Checkout: </span>{{ Carbon\Carbon::parse($d->created_at)->isoFormat('D MMMM Y - H:mm') }}
 
                                         @if($d->packaging_at)
-                                        <br><span class="text-secondary">Paid: </span>{{ Carbon\Carbon::parse($d->packaging_at)->isoFormat('D MMMM Y - H:m') }}
+                                        <br><span class="text-secondary">Paid: </span>{{ Carbon\Carbon::parse($d->packaging_at)->isoFormat('D MMMM Y - H:mm') }}
                                         @endif
 
                                         @if($d->delivering_at)
-                                        <br><span class="text-secondary">Deliver: </span>{{ Carbon\Carbon::parse($d->delivering_at)->isoFormat('D MMMM Y - H:m') }}
+                                        <br><span class="text-secondary">Deliver: </span>{{ Carbon\Carbon::parse($d->delivering_at)->isoFormat('D MMMM Y - H:mm') }}
                                         @endif
 
                                         @if($d->finished_at)
-                                        <br><span class="text-secondary">Deliver: </span>{{ Carbon\Carbon::parse($d->finished_at)->isoFormat('D MMMM Y - H:m') }}
+                                        <br><span class="text-secondary">Confirm: </span>{{ Carbon\Carbon::parse($d->finished_at)->isoFormat('D MMMM Y - H:mm') }}
                                         @endif
                                     </td>
                                     <td>

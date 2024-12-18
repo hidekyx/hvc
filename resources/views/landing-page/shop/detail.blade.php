@@ -188,7 +188,7 @@
             @foreach($related as $r)
             <div class="col-lg-3">
                 <div class="widget-shop">
-                    <div class="product w-100" style="border: 1px solid #bebebe; border-radius: 10px; padding: 10px;">
+                    <div class="product w-100 mb-3" style="border: 1px solid #bebebe; border-radius: 10px; padding: 10px; min-height: 30vh;">
                         <div class="text-center">
                             <img src="{{ asset('storage/collection/'.$r->img_1) }}" class="related-product-image mb-3"><br>
                         </div>

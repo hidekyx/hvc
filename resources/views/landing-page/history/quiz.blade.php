@@ -41,7 +41,7 @@
                         </form>
                     </div>
                     <div class="icon-box effect small border d-flex justify-content-center">
-                        <h2 style="border: 3px solid #333; text-align: center; border-radius: 50%;" class="py-2 px-3" id="counter">120</h2>
+                        <h2 style="border: 3px solid #333; text-align: center; border-radius: 50%;" class="py-2 px-3" id="counter">{{ $question->count() * 20 }}</h2>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,6 @@
             </div>
             <div class="modal-footer">
                 <a href="{{ asset('/history/'.strtolower($history->category).'/detail/'.$history->id_history) }}"><button class="btn btn-b" type="button">Close</button></a>
-                <a href="#"><button class="btn btn-b" type="button">Voucher List</button></a>
             </div>
         </div>
     </div>
@@ -120,7 +119,7 @@
 
     $(document).ready(function() {
         let counter = $('#counter');
-        let countdown = 10;
+        let countdown = '{{ $question->count() * 20 }}';
         let timerExpired = false;
 
         let interval = setInterval(function() {

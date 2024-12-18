@@ -16,7 +16,7 @@ class CollectionController extends Controller
             if (Auth::user()->role == "Admin") {
                 $view = [
                     'page' => 'Collections Management',
-                    'data' => Collection::get(),
+                    'data' => Collection::orderByDesc('id_collection')->get(),
                 ];
 
                 return view('dashboard.collections.index')->with($view);

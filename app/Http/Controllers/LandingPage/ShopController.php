@@ -155,18 +155,20 @@ class ShopController extends Controller
             $deliveryCost = Courier::findOrFail($request->get('id_courier'))->price;
 
             $voucherCost = 0;
-            $voucher = Voucher::where('id_voucher', $request->get('id_voucher'))->where('id_user', Auth::id())->where('status', 'Unused')->firstOrFail();
-            $voucher->status = "Used";
-            $voucher->save();
-            if ($voucher->category == "Diskon 5 Persen") {
-                $voucherCost = $total * 0.05;
-            } else if ($voucher->category == "Gratis Ongkir") {
-                $voucherCost = $deliveryCost;
+            if($request->get('id_voucher')) {
+                $voucher = Voucher::where('id_voucher', $request->get('id_voucher'))->where('id_user', Auth::id())->where('status', 'Unused')->firstOrFail();
+                $voucher->status = "Used";
+                $voucher->save();
+                if ($voucher->category == "Diskon 5 Persen") {
+                    $voucherCost = $total * 0.05;
+                } else if ($voucher->category == "Gratis Ongkir") {
+                    $voucherCost = $deliveryCost;
+                }
             }
 
             $transaction = new Transaction($request->all());
             $transaction->id_user = Auth::id();
-            $transaction->id_voucher = $voucher->id_voucher;
+            $transaction->id_voucher = $voucher->id_voucher ?? null;
             $transaction->total = $total + $deliveryCost - $voucherCost;
             $transaction->status = "Payment";
             $transaction->save();

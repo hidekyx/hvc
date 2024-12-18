@@ -72,9 +72,11 @@
                                             </button>
                                         </a>
                                         
+                                        @if($d->role != "Admin")
                                         <button type="button" class="btn btn-danger btn-sm rounded-pill mb-2" data-bs-toggle="modal" data-bs-target="#delete-{{ $d->id_user }}">
                                             <b><i class="bi bi-trash"></i> </b>
                                         </button>
+                                        @endif
                                         <div class="modal fade" id="delete-{{ $d->id_user }}" tabindex="-1">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">

@@ -10,7 +10,12 @@
             <div class="header-extras">
                 <ul>
                     <li>
-                        <a href="{{ asset('/cart') }}"><i class="icon-shopping-cart"></i></a>
+                        <a href="{{ asset('/cart') }}">
+                            <i class="icon-shopping-cart"></i>
+                            @auth
+                            <span class="badge bg-danger" style="font-size: 12px;">{{ App\Models\Cart::getTotalCart(auth()->id()) }}</span>
+                            @endauth
+                        </a>
                     </li>
                     <li>
                         <div class="p-dropdown">

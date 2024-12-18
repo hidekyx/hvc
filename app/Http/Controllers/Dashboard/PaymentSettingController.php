@@ -16,7 +16,7 @@ class PaymentSettingController extends Controller
             if (Auth::user()->role == "Admin") {
                 $view = [
                     'page' => 'Payment Setting',
-                    'data' => Payment::get(),
+                    'data' => Payment::orderByDesc('id_payment')->get(),
                 ];
 
                 return view('dashboard.payment-setting.index')->with($view);

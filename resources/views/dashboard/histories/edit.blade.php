@@ -49,11 +49,11 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="size" class="col-lg-2 col-form-label">Collection</label>
+                                <label for="id_collection" class="col-lg-2 col-form-label">Collection</label>
                                 <div class="col-lg-10">
-                                <select class="form-select" size="8" name="id_collection[]" id="id_collection" multiple>
+                                    <select class="form-select" size="8" name="id_collection[]" id="id_collection" multiple>
                                         @foreach($collection as $c)
-                                        <option value="{{ $c->id_collection }}">{{ $c->name }}</option>
+                                        <option value="{{ $c->id_collection }}" {{ $c->id_history == $data->id_history ? 'selected' : '' }}>{{ $c->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

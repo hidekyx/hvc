@@ -44,4 +44,17 @@ class Cart extends Model
     {
         $query->where('status', 'Finished');
     }
+
+    // ACCESSORS
+    public static function getTotalCart($idUser)
+    {
+        $totalCart = self::where('id_user', $idUser)->where('status', 'Waiting')->count();
+
+        if($totalCart) {
+            return $totalCart;
+        }
+        else { 
+            return null;
+        }
+    }
 }

@@ -126,6 +126,7 @@
     height: 300px !important;
     object-fit: cover;
     max-width: 235px;
+    border-radius: 50px;
 }
 
 .best-seller-image {
@@ -135,8 +136,9 @@
 }
 
 .review-image {
-    max-width: 100%;
+    width: 100%;
     object-fit: cover;
+    height: 300px !important;
 }
 
 .review-user-image {

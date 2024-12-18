@@ -47,7 +47,7 @@
         @if(count($collection))
         <div class="carousel team-members team-members-shadow" data-items="3">
             @foreach ($collection as $c)
-            <div class="team-member" style="background-color: #313131;">
+            <div class="team-member" style="background-color: #313131; min-height: 70vh;">
                 <div class="team-image">
                     <img src="{{ asset('storage/collection/'.$c->img_1) }}" class="collection-home-image">
                 </div>
