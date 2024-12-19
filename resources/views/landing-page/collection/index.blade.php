@@ -34,6 +34,7 @@
         @if(count($bestSellers))
         <div class="carousel" data-items="4" data-lightbox="gallery">
             @foreach ($bestSellers as $b)
+            @if($b->collection)
             <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
                 <div class="portfolio-item-wrap">
                     <div class="portfolio-image">
@@ -47,6 +48,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @endforeach
         </div>
         @else
@@ -74,7 +76,7 @@
                             <i class="fa fa-star"></i>
                             @endfor
                         </div>
-                        <span style="font-size: 17px;">-{{ $r->user->name }}-</span>
+                        <span style="font-size: 17px;">-{{ $r->user->name ?? 'User deleted' }}-</span>
                         <p style="font-size: 20px">"{{ $r->review }}"</p>
                     </div>
                 </div>

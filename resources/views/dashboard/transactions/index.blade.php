@@ -60,8 +60,12 @@
                                     </td>
                                     <td>
                                         @foreach($d->detail as $detail)
+                                        @if($detail->collection)
                                         <span class="badge bg-dark">{{ $detail->collection->name }}, {{ $detail->color }}, {{ $detail->size }} x{{ $detail->quantity }} = Rp. {{ number_format($detail->collection->price * $detail->quantity) }}</span>
                                         <br>
+                                        @else
+                                        <span class="badge bg-dark">Collection deleted</span>
+                                        @endif
                                         @endforeach
                                     </td>
                                     <td class="text-dark">
@@ -72,6 +76,7 @@
                                         @endif
                                     </td>
                                     <td class="text-secondary">
+                                        @if($d->user)
                                         Name: {{ $d->user->name }}<hr>
                                         @php
                                         $maxLength = 30;
@@ -80,6 +85,9 @@
                                         echo $address_split = implode("<br>",$address);
                                         
                                         @endphp
+                                        @else
+                                        User deleted
+                                        @endif
                                     </td>
                                     <td class="text-bold">
                                         @if($d->payment)

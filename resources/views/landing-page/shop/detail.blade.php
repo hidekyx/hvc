@@ -138,10 +138,12 @@
                             <hr class="my-4">
                             <div class="comment-list">
                                 <div class="comment pb-0" id="comment-1">
-                                    @if(Storage::exists('public/avatar/'.$r->user->avatar) && $r->user->avatar)
-                                    <div class="image">
-                                        <img src="{{ asset('storage/avatar/'.$r->user->avatar) }}" class="avatar">
-                                    </div>
+                                    @if($r->user)
+                                        @if(Storage::exists('public/avatar/'.$r->user->avatar) && $r->user->avatar)
+                                        <div class="image">
+                                            <img src="{{ asset('storage/avatar/'.$r->user->avatar) }}" class="avatar">
+                                        </div>
+                                        @endif
                                     @endif
                                     <div class="text">
                                         <div class="product-rate">
@@ -149,7 +151,7 @@
                                             <i class="fa fa-star"></i>
                                             @endfor
                                         </div>
-                                        <h5 class="name" style="font-size: 20px;">{{ $r->user->name }}</h5>
+                                        <h5 class="name" style="font-size: 20px;">{{ $r->user->name ?? 'User deleted' }}</h5>
                                         <span class="comment_date" style="font-size: 18px;">Reviewed at {{ Carbon\Carbon::parse($r->created_at)->isoFormat('D MMMM Y - H:m') }}</span>
                                         <div class="text_holder">
                                             <p style="font-size: 18px;">{{ $r->review }}</p>

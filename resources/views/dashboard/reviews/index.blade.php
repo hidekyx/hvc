@@ -45,10 +45,18 @@
                                         <span class="text-secondary">Reviewed: </span>{{ Carbon\Carbon::parse($d->created_at)->isoFormat('D MMMM Y - H:m') }}
                                     </td>
                                     <td class="text-bold" style="font-weight: 600;">
+                                        @if($d->user)
                                         {{ $d->user->name }}
+                                        @else
+                                        User deleted
+                                        @endif
                                     </td>
                                     <td class="text-bold" style="font-weight: 600;">
+                                        @if($d->collection)
                                         <a href="{{ asset('/shop/'.$d->collection->id_collection) }}" target="_blank">{{ $d->collection->name }}</a>
+                                        @else
+                                        Collection deleted
+                                        @endif
                                     </td>
                                     <td class="text-secondary">
                                         @php
