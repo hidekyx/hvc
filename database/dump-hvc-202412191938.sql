@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `cart`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cart` (
   `id_cart` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NOT NULL,
-  `id_collection` int NOT NULL,
+  `id_user` int DEFAULT NULL,
+  `id_collection` int DEFAULT NULL,
   `quantity` int NOT NULL DEFAULT '1',
   `size` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `color` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE `collection` (
 
 LOCK TABLES `collection` WRITE;
 /*!40000 ALTER TABLE `collection` DISABLE KEYS */;
-INSERT INTO `collection` VALUES (1,1,'Candi Bajang Ratu',200000,44,'National','Candi Bajang Ratu adalah sebuah candi peninggalan kerajaan Majapahit yang dibangun pada abad ke-14. Lokasinya berada di Dukuh Kraton, Desa Temon, Kecamatan Trowulan, Kabupaten Mojokerto, Jawa Timur, Indonesia. Candi ini memiliki bentuk segi empat dengan ukuran sekitar 11,5 m x 10,5 m dan tinggi 16,5 m, serta berdiri pada ketinggian 41,49 mdpl. Candi Bajang Ratu merupakan gapura besar yang difungsikan sebagai pintu belakang kerajaan sekaligus sebagai bangunan suci untuk wafatnya Raja Jayanegara.','S, M, L','White, Black, Blue','preview-image-1.png','preview-image-2.png','','','2024-05-20 12:06:50','2024-12-19 05:43:52'),(9,NULL,'Bajang Flannel Checked Sleeved',279000,48,'National','Made with fluffy, double-ply thread. Brushed for extra softness. Moderately roomy, regular fit. Perfect for wearing on its own or as a light outer layer. Balanced collar design. Basic single stitch showcases the pattern. 100% cotton flannel fabric. Double-ply thick count yarn creates a pleasant thickness. Brushed on both sides for softness and warmth. Relaxed regular fit styles on its own or as an outer layer.','S, M, L, XL','Checked Yellow, Olive Green, Dark Blue, White Navy','be94b28c8a2cd3a0471154d982b2a140.jpg','6032f2544d9e273e2a986b73fbd0f49f.jpg','bb293af886d2f46e678715146869879f.jpg','c6d7049b9045a2157cd9d86dbdad8815.jpg','2024-12-18 03:05:08','2024-12-18 04:11:13'),(10,NULL,'Executive Oxford Long Sleeve',164000,49,'National','Blouse lengan panjang, Kerah kemeja, Front button opening, Rounded hemline, Regular Fit, Material: Cotton. Gunakan Detergen Yang Lembut, Jangan Gunakan Pemutih, Setrika Suhu Rendah','S, M, L, XL, XXL','Light Blue, Black, Mint, White','31fe1cac703210629ab8cdd859ae0c4c.jpg','0da51daa15262e2530b5e2b8b6bc759c.jpg','82f29b6f71f8ce6caff2f47beb16bfa1.jpg','2d4852975442a66a82c23072b4d37be2.jpg','2024-12-18 03:23:06','2024-12-18 04:11:13'),(11,3,'Baseball Cap NARASON',110000,46,'National','Topi Baseball Cap Pria Original Narason Casual Sports Distro Polos Fashion Pria Wanita Premium Quality. Brand : Original Narason, Bahan : Cotton, Polyester etc, Strap Type : Adjustable, High Quality, Diameter sekitar 56-60cm, BERAT: 100gr','M','Black, Grey, Navy, Dark Grey','851f1c034a76b625f75055a0d50047f1.png','1cd6df5cdf277520cd92e3c5668f8747.png','f978e9f2709ed4606476fe4b5e4f33c5.png','68615c302218215f46ce6dde4529e4bd.png','2024-12-18 03:27:52','2024-12-19 06:03:31'),(12,NULL,'Non-Cobra Backpack',940000,46,'National','This bag features a signature bright yellow liner for increased browsing visibility, an easy access zip opening to the entire main compartment, weatherproof construction, a semi-rigid polyethylene back-plate, height extendability, a total of six organizer pockets, two side pockets, a transparent mica sheet inner pocket for organizing visibility, a suspended and padded laptop compartment with a soft felt liner (fits up to 15\"), integrated 3M reflective webbing, seam sealing for extra liquid protection, flaptop or rolltop mode, compression straps that double as a versatile two-way external carry system, and a handle slip-thru slot for secure carry on top of luggage.','L','Black, Maroon, Navy, Silver','1796e58380cf97c3b6c3d110d7ea6faa.jpg','5c3817a7295e82601e62f8f076b5ad55.jpg','a7773664cae81da19b77bbc8c2d2ae83.webp','9a4d0d973bbb45b07605dc6a5cd0d9e0.jpg','2024-12-18 03:32:50','2024-12-18 04:08:09'),(13,3,'KATTOEN Pullover Hoodie',330000,38,'National','Dibuat dengan bahan Cotton Fleece Material & Zipper YKK Premium. Menggunakan Pola Bodyfit Pattern agar dapat Mengikuti Bentuk Tubuh.','M, L, XL, XXL','Carbon Grey, Dark Brown, Seaweed','d13ad69b9645ec6114ad138f98efa091.jpg','7b3e115fff317cfb7c75eee7ff28d1e4.jpg','6070ca53f75dd000dccd68f49b4e4d60.jpg',NULL,'2024-12-18 03:41:23','2024-12-19 06:03:31');
+INSERT INTO `collection` VALUES (1,NULL,'Candi Bajang Ratu',200000,44,'National','Candi Bajang Ratu adalah sebuah candi peninggalan kerajaan Majapahit yang dibangun pada abad ke-14. Lokasinya berada di Dukuh Kraton, Desa Temon, Kecamatan Trowulan, Kabupaten Mojokerto, Jawa Timur, Indonesia. Candi ini memiliki bentuk segi empat dengan ukuran sekitar 11,5 m x 10,5 m dan tinggi 16,5 m, serta berdiri pada ketinggian 41,49 mdpl. Candi Bajang Ratu merupakan gapura besar yang difungsikan sebagai pintu belakang kerajaan sekaligus sebagai bangunan suci untuk wafatnya Raja Jayanegara.','S, M, L','White, Black, Blue','preview-image-1.png','preview-image-2.png','','','2024-05-20 12:06:50','2024-12-19 05:43:52'),(10,NULL,'Executive Oxford Long Sleeve',164000,49,'National','Blouse lengan panjang, Kerah kemeja, Front button opening, Rounded hemline, Regular Fit, Material: Cotton. Gunakan Detergen Yang Lembut, Jangan Gunakan Pemutih, Setrika Suhu Rendah','S, M, L, XL, XXL','Light Blue, Black, Mint, White','31fe1cac703210629ab8cdd859ae0c4c.jpg','0da51daa15262e2530b5e2b8b6bc759c.jpg','82f29b6f71f8ce6caff2f47beb16bfa1.jpg','2d4852975442a66a82c23072b4d37be2.jpg','2024-12-18 03:23:06','2024-12-18 04:11:13'),(12,NULL,'Non-Cobra Backpack',940000,46,'National','This bag features a signature bright yellow liner for increased browsing visibility, an easy access zip opening to the entire main compartment, weatherproof construction, a semi-rigid polyethylene back-plate, height extendability, a total of six organizer pockets, two side pockets, a transparent mica sheet inner pocket for organizing visibility, a suspended and padded laptop compartment with a soft felt liner (fits up to 15\"), integrated 3M reflective webbing, seam sealing for extra liquid protection, flaptop or rolltop mode, compression straps that double as a versatile two-way external carry system, and a handle slip-thru slot for secure carry on top of luggage.','L','Black, Maroon, Navy, Silver','1796e58380cf97c3b6c3d110d7ea6faa.jpg','5c3817a7295e82601e62f8f076b5ad55.jpg','a7773664cae81da19b77bbc8c2d2ae83.webp','9a4d0d973bbb45b07605dc6a5cd0d9e0.jpg','2024-12-18 03:32:50','2024-12-18 04:08:09'),(13,3,'KATTOEN Pullover Hoodie',330000,38,'National','Dibuat dengan bahan Cotton Fleece Material & Zipper YKK Premium. Menggunakan Pola Bodyfit Pattern agar dapat Mengikuti Bentuk Tubuh.','M, L, XL, XXL','Carbon Grey, Dark Brown, Seaweed','d13ad69b9645ec6114ad138f98efa091.jpg','7b3e115fff317cfb7c75eee7ff28d1e4.jpg','6070ca53f75dd000dccd68f49b4e4d60.jpg',NULL,'2024-12-18 03:41:23','2024-12-19 06:03:31');
 /*!40000 ALTER TABLE `collection` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,7 +166,7 @@ CREATE TABLE `history` (
 
 LOCK TABLES `history` WRITE;
 /*!40000 ALTER TABLE `history` DISABLE KEYS */;
-INSERT INTO `history` VALUES (1,'Candi Bajang Batu','National','9bffc99a5ff0d10dd3e171ac68a809d1.png','42b60c468eac65ccd0fac76807d835f8.png','','','<div><b>Candi Bajang Ratu</b> adalah salah satu peninggalan bersejarah dari Kerajaan Majapahit yang terletak di Desa Temon, Kecamatan Trowulan, Kabupaten Mojokerto, Jawa Timur. Meskipun namanya \"Candi\", bangunan ini lebih tepat disebut sebagai gapura atau gerbang, karena bentuknya yang menyerupai pintu masuk menuju suatu kompleks bangunan suci.</div><div><br></div><div>Sejarah dan Fungsi</div><ul><li>Tugu Peringatan: Candi Bajang Ratu dipercaya dibangun sebagai tugu peringatan untuk menghormati Jayanegara, raja kedua Majapahit yang wafat pada tahun 1328.</li><li>Gerbang Suci: Bentuknya yang menyerupai gapura mengindikasikan bahwa bangunan ini berfungsi sebagai pintu masuk ke sebuah kompleks makam atau bangunan suci lainnya.</li><li>Simbol Kekuasaan: Ornamen dan relief pada Candi Bajang Ratu, seperti motif singa dan garuda, melambangkan kekuatan dan keagungan Kerajaan Majapahit.</li></ul><div><br></div><div>Candi Bajang Ratu, dengan bentuk gapura monumentalnya yang menghadap ke timur, menjadi pintu gerbang menuju masa kejayaan Kerajaan Majapahit. Ornamen relief yang menghiasi dinding-dindingnya, mulai dari motif flora yang menawan hingga fauna yang eksotis, dipahat dengan begitu detail menggunakan teknik pahat yang halus. Motif geometri yang rumit, seperti motif spiral dan lingkaran, dipercaya mengandung simbol-simbol kosmologi yang mendalam. Penggunaan batu bata dan batu andesit sebagai material utama, selain memperkuat struktur bangunan, juga menciptakan kontras warna yang menarik. Meskipun telah mengalami kerusakan akibat pengaruh alam dan waktu, Candi Bajang Ratu tetap berdiri kokoh sebagai saksi bisu kemegahan masa lalu. Dibandingkan dengan candi-candi lain di Trowulan, Candi Bajang Ratu memiliki ciri khas pada ornamennya yang lebih dinamis dan bervariasi.</div><div><br></div><div>Candi Bajang Ratu bukan hanya sekadar reruntuhan kuno, melainkan jendela waktu yang membawa kita kembali ke masa kejayaan Kerajaan Majapahit. Sebagai salah satu situs arkeologi terpenting di Indonesia, candi ini telah memberikan kontribusi besar dalam pemahaman kita tentang sejarah dan kebudayaan Nusantara. Melalui studi mendalam terhadap arsitektur, ornamen, dan artefak yang ditemukan di sini, para ahli telah berhasil mengungkap banyak rahasia tentang kehidupan masyarakat Majapahit. Selain itu, Candi Bajang Ratu juga berperan penting dalam upaya pelestarian warisan budaya bangsa. Sebagai destinasi wisata edukasi, candi ini tidak hanya menarik minat wisatawan domestik, tetapi juga mancanegara yang ingin belajar tentang sejarah dan budaya Indonesia. Meskipun telah banyak penelitian yang dilakukan, Candi Bajang Ratu masih menyimpan banyak misteri yang menanti untuk diungkap oleh generasi mendatang.</div>',1,'2024-11-25 05:35:33','2024-11-25 07:02:04'),(3,'Sejarah Terbentuknya NARASON','National','242c16d8c5c21b34b014d6ef74d0977c.webp','b9fb9e8b6628e859d561c208fee6eb4d.webp',NULL,NULL,'NARASON merupakan topi topian berwarna hitam',0,'2024-12-19 06:03:31','2024-12-19 06:08:03');
+INSERT INTO `history` VALUES (3,'Sejarah Terbentuknya NARASON','National','242c16d8c5c21b34b014d6ef74d0977c.webp','b9fb9e8b6628e859d561c208fee6eb4d.webp',NULL,NULL,'NARASON merupakan topi topian berwarna hitam',0,'2024-12-19 06:03:31','2024-12-19 06:08:03');
 /*!40000 ALTER TABLE `history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,14 +208,14 @@ DROP TABLE IF EXISTS `quiz_answer`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `quiz_answer` (
   `id_quiz_answer` int NOT NULL AUTO_INCREMENT,
-  `id_quiz_question` int NOT NULL,
+  `id_quiz_question` int DEFAULT NULL,
   `answer` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `is_correct` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_quiz_answer`),
   KEY `quiz_answer_FK` (`id_quiz_question`),
-  CONSTRAINT `quiz_answer_FK` FOREIGN KEY (`id_quiz_question`) REFERENCES `quiz_question` (`id_quiz_question`)
+  CONSTRAINT `quiz_answer_FK` FOREIGN KEY (`id_quiz_question`) REFERENCES `quiz_question` (`id_quiz_question`) ON DELETE SET NULL ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -238,13 +238,13 @@ DROP TABLE IF EXISTS `quiz_question`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `quiz_question` (
   `id_quiz_question` int NOT NULL AUTO_INCREMENT,
-  `id_history` int NOT NULL,
+  `id_history` int DEFAULT NULL,
   `question` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_quiz_question`),
   KEY `quiz_question_FK` (`id_history`),
-  CONSTRAINT `quiz_question_FK` FOREIGN KEY (`id_history`) REFERENCES `history` (`id_history`)
+  CONSTRAINT `quiz_question_FK` FOREIGN KEY (`id_history`) REFERENCES `history` (`id_history`) ON DELETE SET NULL ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -254,7 +254,7 @@ CREATE TABLE `quiz_question` (
 
 LOCK TABLES `quiz_question` WRITE;
 /*!40000 ALTER TABLE `quiz_question` DISABLE KEYS */;
-INSERT INTO `quiz_question` VALUES (7,1,'Candi Bajang Ratu bukan hanya sekadar reruntuhan kuno, melainkan?','2024-12-18 04:23:15','2024-12-18 04:23:15'),(8,1,'Candi Bajang Ratu dipercaya dibangun sebagai tugu peringatan untuk menghormati Jayanegara, raja kedua Majapahit yang wafat pada tahun 1328 merupakan fungsi?','2024-12-18 04:23:53','2024-12-18 04:23:53'),(9,1,'Candi Bajang Ratu, dengan bentuk gapura monumentalnya yang menghadap ke?','2024-12-18 04:25:00','2024-12-18 04:25:00'),(10,1,'Penggunaan batu pada Candi Bajang Batu yang berfungsi untuk memperkuat struktur bangunan dan menciptakan kontras menarik adalah','2024-12-18 04:26:39','2024-12-18 04:26:39');
+INSERT INTO `quiz_question` VALUES (7,NULL,'Candi Bajang Ratu bukan hanya sekadar reruntuhan kuno, melainkan?','2024-12-18 04:23:15','2024-12-18 04:23:15'),(8,NULL,'Candi Bajang Ratu dipercaya dibangun sebagai tugu peringatan untuk menghormati Jayanegara, raja kedua Majapahit yang wafat pada tahun 1328 merupakan fungsi?','2024-12-18 04:23:53','2024-12-18 04:23:53'),(9,NULL,'Candi Bajang Ratu, dengan bentuk gapura monumentalnya yang menghadap ke?','2024-12-18 04:25:00','2024-12-18 04:25:00'),(10,NULL,'Penggunaan batu pada Candi Bajang Batu yang berfungsi untuk memperkuat struktur bangunan dan menciptakan kontras menarik adalah','2024-12-18 04:26:39','2024-12-18 04:26:39');
 /*!40000 ALTER TABLE `quiz_question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,16 +267,16 @@ DROP TABLE IF EXISTS `quiz_session`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `quiz_session` (
   `id_quiz_session` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NOT NULL,
-  `id_history` int NOT NULL,
+  `id_user` int DEFAULT NULL,
+  `id_history` int DEFAULT NULL,
   `status` enum('Unfinished','Finished') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_quiz_session`),
   KEY `quiz_session_FK` (`id_user`),
   KEY `quiz_session_FK_1` (`id_history`),
-  CONSTRAINT `quiz_session_FK` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
-  CONSTRAINT `quiz_session_FK_1` FOREIGN KEY (`id_history`) REFERENCES `history` (`id_history`)
+  CONSTRAINT `quiz_session_FK` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE RESTRICT,
+  CONSTRAINT `quiz_session_FK_1` FOREIGN KEY (`id_history`) REFERENCES `history` (`id_history`) ON DELETE SET NULL ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -286,7 +286,7 @@ CREATE TABLE `quiz_session` (
 
 LOCK TABLES `quiz_session` WRITE;
 /*!40000 ALTER TABLE `quiz_session` DISABLE KEYS */;
-INSERT INTO `quiz_session` VALUES (17,1,1,'Unfinished','2024-12-18 04:29:35','2024-12-18 04:29:35'),(18,1,1,'Finished','2024-12-18 04:29:51','2024-12-18 04:30:25'),(21,4,1,'Finished','2024-12-18 05:53:03','2024-12-19 05:53:47'),(23,4,1,'Finished','2024-12-19 05:55:55','2024-12-19 05:56:44'),(24,4,3,'Unfinished','2024-12-19 06:14:06','2024-12-19 06:14:06');
+INSERT INTO `quiz_session` VALUES (17,1,NULL,'Unfinished','2024-12-18 04:29:35','2024-12-18 04:29:35'),(18,1,NULL,'Finished','2024-12-18 04:29:51','2024-12-18 04:30:25'),(21,NULL,NULL,'Finished','2024-12-18 05:53:03','2024-12-19 05:53:47'),(23,NULL,NULL,'Finished','2024-12-19 05:55:55','2024-12-19 05:56:44'),(24,NULL,3,'Unfinished','2024-12-19 06:14:06','2024-12-19 06:14:06');
 /*!40000 ALTER TABLE `quiz_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,9 +299,9 @@ DROP TABLE IF EXISTS `review`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `review` (
   `id_review` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NOT NULL,
-  `id_transaction_detail` int NOT NULL,
-  `id_collection` int NOT NULL,
+  `id_user` int DEFAULT NULL,
+  `id_transaction_detail` int DEFAULT NULL,
+  `id_collection` int DEFAULT NULL,
   `review` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `rate` int NOT NULL,
   `img_1` varchar(255) DEFAULT NULL,
@@ -333,9 +333,9 @@ DROP TABLE IF EXISTS `transaction`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transaction` (
   `id_transaction` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NOT NULL,
-  `id_courier` int NOT NULL,
-  `id_payment` int NOT NULL,
+  `id_user` int DEFAULT NULL,
+  `id_courier` int DEFAULT NULL,
+  `id_payment` int DEFAULT NULL,
   `id_voucher` int DEFAULT NULL,
   `total` int NOT NULL,
   `status` enum('Payment','Packaging','Delivering','Finished') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -352,10 +352,10 @@ CREATE TABLE `transaction` (
   KEY `transaction_FK_1` (`id_courier`),
   KEY `transaction_FK_2` (`id_payment`),
   KEY `transaction_FK_3` (`id_voucher`),
-  CONSTRAINT `transaction_FK` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
-  CONSTRAINT `transaction_FK_1` FOREIGN KEY (`id_courier`) REFERENCES `courier` (`id_courier`),
-  CONSTRAINT `transaction_FK_2` FOREIGN KEY (`id_payment`) REFERENCES `payment` (`id_payment`),
-  CONSTRAINT `transaction_FK_3` FOREIGN KEY (`id_voucher`) REFERENCES `voucher` (`id_voucher`)
+  CONSTRAINT `transaction_FK` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE RESTRICT,
+  CONSTRAINT `transaction_FK_1` FOREIGN KEY (`id_courier`) REFERENCES `courier` (`id_courier`) ON DELETE SET NULL ON UPDATE RESTRICT,
+  CONSTRAINT `transaction_FK_2` FOREIGN KEY (`id_payment`) REFERENCES `payment` (`id_payment`) ON DELETE SET NULL ON UPDATE RESTRICT,
+  CONSTRAINT `transaction_FK_3` FOREIGN KEY (`id_voucher`) REFERENCES `voucher` (`id_voucher`) ON DELETE SET NULL ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -365,7 +365,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (17,1,3,3,NULL,453000,'Finished','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan','168848','82644497cd2c5a32b202bdf5f15fb7aa.png','2024-12-18 04:04:51','2024-12-18 04:07:01','2024-12-18 04:06:12','2024-12-18 04:06:50','2024-12-18 04:07:01'),(18,1,2,4,NULL,3772000,'Finished','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan','482515','003ba0ec21b0962e2afe0cfe1387bbc5.png','2024-12-18 04:08:09','2024-12-18 04:08:56','2024-12-18 04:08:18','2024-12-18 04:08:24','2024-12-18 04:08:56'),(19,1,4,5,NULL,731000,'Finished','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan','120585','c61d2dc7103fff360847c77f339b27d6.png','2024-12-18 04:11:13','2024-12-18 04:11:31','2024-12-18 04:11:21','2024-12-18 04:11:27','2024-12-18 04:11:31'),(20,1,4,4,11,389000,'Packaging','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan',NULL,'4f7cde1fc532d15208ce599e3a342ca4.png','2024-12-18 04:31:10','2024-12-18 04:31:19','2024-12-18 04:31:19',NULL,NULL),(21,4,3,5,NULL,413000,'Finished','Apalah alamatnya yang penting ada','947821','d2981f7689087bbe68579acc841f6e00.png','2024-12-19 05:43:52','2024-12-19 05:46:44','2024-12-19 05:44:44','2024-12-19 05:45:32','2024-12-19 05:46:44'),(22,4,4,5,13,2517000,'Payment','Apalah alamatnya yang penting ada',NULL,NULL,'2024-12-19 06:01:19','2024-12-19 06:01:19',NULL,NULL,NULL);
+INSERT INTO `transaction` VALUES (17,1,3,3,NULL,453000,'Finished','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan','168848','82644497cd2c5a32b202bdf5f15fb7aa.png','2024-12-18 04:04:51','2024-12-18 04:07:01','2024-12-18 04:06:12','2024-12-18 04:06:50','2024-12-18 04:07:01'),(18,1,2,4,NULL,3772000,'Finished','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan','482515','003ba0ec21b0962e2afe0cfe1387bbc5.png','2024-12-18 04:08:09','2024-12-18 04:08:56','2024-12-18 04:08:18','2024-12-18 04:08:24','2024-12-18 04:08:56'),(19,1,4,5,NULL,731000,'Finished','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan','120585','c61d2dc7103fff360847c77f339b27d6.png','2024-12-18 04:11:13','2024-12-18 04:11:31','2024-12-18 04:11:21','2024-12-18 04:11:27','2024-12-18 04:11:31'),(20,1,4,4,11,389000,'Packaging','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan',NULL,'4f7cde1fc532d15208ce599e3a342ca4.png','2024-12-18 04:31:10','2024-12-18 04:31:19','2024-12-18 04:31:19',NULL,NULL),(21,NULL,3,5,NULL,413000,'Finished','Apalah alamatnya yang penting ada','947821','d2981f7689087bbe68579acc841f6e00.png','2024-12-19 05:43:52','2024-12-19 05:46:44','2024-12-19 05:44:44','2024-12-19 05:45:32','2024-12-19 05:46:44'),(22,NULL,4,5,13,2517000,'Payment','Apalah alamatnya yang penting ada',NULL,NULL,'2024-12-19 06:01:19','2024-12-19 06:01:19',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -379,8 +379,8 @@ DROP TABLE IF EXISTS `transaction_detail`;
 CREATE TABLE `transaction_detail` (
   `id_transaction_detail` int NOT NULL AUTO_INCREMENT,
   `id_transaction` int DEFAULT NULL,
-  `id_user` int NOT NULL,
-  `id_collection` int NOT NULL,
+  `id_user` int DEFAULT NULL,
+  `id_collection` int DEFAULT NULL,
   `quantity` int NOT NULL DEFAULT '1',
   `size` varchar(100) NOT NULL,
   `color` varchar(100) NOT NULL,
@@ -390,9 +390,8 @@ CREATE TABLE `transaction_detail` (
   KEY `transaction_detail_FK` (`id_transaction`),
   KEY `transaction_detail_FK_1` (`id_collection`),
   KEY `transaction_detail_FK_2` (`id_user`),
-  CONSTRAINT `transaction_detail_FK` FOREIGN KEY (`id_transaction`) REFERENCES `transaction` (`id_transaction`),
-  CONSTRAINT `transaction_detail_FK_1` FOREIGN KEY (`id_collection`) REFERENCES `collection` (`id_collection`),
-  CONSTRAINT `transaction_detail_FK_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
+  CONSTRAINT `transaction_detail_FK` FOREIGN KEY (`id_transaction`) REFERENCES `transaction` (`id_transaction`) ON DELETE SET NULL ON UPDATE RESTRICT,
+  CONSTRAINT `transaction_detail_FK_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -402,7 +401,7 @@ CREATE TABLE `transaction_detail` (
 
 LOCK TABLES `transaction_detail` WRITE;
 /*!40000 ALTER TABLE `transaction_detail` DISABLE KEYS */;
-INSERT INTO `transaction_detail` VALUES (32,17,1,13,1,'L','Dark Brown','2024-12-18 04:04:51','2024-12-18 04:04:51'),(33,17,1,11,1,'M','Grey','2024-12-18 04:04:51','2024-12-18 04:04:51'),(34,18,1,12,1,'L','Silver','2024-12-18 04:08:09','2024-12-18 04:08:09'),(35,18,1,12,2,'L','Maroon','2024-12-18 04:08:09','2024-12-18 04:08:09'),(36,18,1,12,1,'L','Black','2024-12-18 04:08:09','2024-12-18 04:08:09'),(37,19,1,10,1,'L','Mint','2024-12-18 04:11:13','2024-12-18 04:11:13'),(38,19,1,9,2,'XL','Olive Green','2024-12-18 04:11:13','2024-12-18 04:11:13'),(39,20,1,1,2,'L','Black','2024-12-18 04:31:10','2024-12-18 04:31:10'),(40,21,4,1,2,'M','Blue','2024-12-19 05:43:52','2024-12-19 05:43:52'),(41,22,4,13,8,'XXL','Seaweed','2024-12-19 06:01:19','2024-12-19 06:01:19');
+INSERT INTO `transaction_detail` VALUES (32,17,1,13,1,'L','Dark Brown','2024-12-18 04:04:51','2024-12-18 04:04:51'),(33,17,1,11,1,'M','Grey','2024-12-18 04:04:51','2024-12-18 04:04:51'),(34,18,1,12,1,'L','Silver','2024-12-18 04:08:09','2024-12-18 04:08:09'),(35,18,1,12,2,'L','Maroon','2024-12-18 04:08:09','2024-12-18 04:08:09'),(36,18,1,12,1,'L','Black','2024-12-18 04:08:09','2024-12-18 04:08:09'),(37,19,1,10,1,'L','Mint','2024-12-18 04:11:13','2024-12-18 04:11:13'),(38,19,1,9,2,'XL','Olive Green','2024-12-18 04:11:13','2024-12-18 04:11:13'),(39,20,1,1,2,'L','Black','2024-12-18 04:31:10','2024-12-18 04:31:10'),(40,21,NULL,1,2,'M','Blue','2024-12-19 05:43:52','2024-12-19 05:43:52'),(41,22,NULL,13,8,'XXL','Seaweed','2024-12-19 06:01:19','2024-12-19 06:01:19');
 /*!40000 ALTER TABLE `transaction_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -437,7 +436,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Afgan','afganhalimi@gmail.com','$2y$10$UihRGXOLYPrJIrsqDbHjO.WaGUOM0g4YK.GZEbRgbJLf2lJFpJyJC','087883122665','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan','Customer',NULL,'Y','2024-12-18 03:49:41','2024-05-20 12:02:41','2024-12-18 03:49:41',NULL),(3,'Admin','admin@gmail.com','$2y$10$UihRGXOLYPrJIrsqDbHjO.WaGUOM0g4YK.GZEbRgbJLf2lJFpJyJC','087832356412','Jalan Admin Jalan Jalan Kepinggir Kota Jalan Jauh Admin','Admin',NULL,'Y','2024-12-19 05:39:36','2024-05-20 12:02:41','2024-12-19 05:39:36',NULL),(4,'User Baru','userbaru@gmail.com','$2y$10$qGjiRj2Dhkimta4EN1LWcObOV3005.2re7/XvoFSPWbX0TyfzU2sG','12345678','Apalah alamatnya yang penting ada','Customer','b966de472749d6760d6286d7b8278a6f.webp','Y','2024-12-19 05:43:15','2024-12-19 05:40:34','2024-12-19 05:43:15',NULL);
+INSERT INTO `user` VALUES (1,'Afgan','afganhalimi@gmail.com','$2y$10$UihRGXOLYPrJIrsqDbHjO.WaGUOM0g4YK.GZEbRgbJLf2lJFpJyJC','087883122665','Jl. Jauh Banget Kelurahan Deket Kecamatan Jauh Kota Kotaan','Customer',NULL,'Y','2024-12-18 03:49:41','2024-05-20 12:02:41','2024-12-18 03:49:41',NULL),(3,'Admin','admin@gmail.com','$2y$10$UihRGXOLYPrJIrsqDbHjO.WaGUOM0g4YK.GZEbRgbJLf2lJFpJyJC','087832356412','Jalan Admin Jalan Jalan Kepinggir Kota Jalan Jauh Admin','Admin',NULL,'Y','2024-12-19 12:25:25','2024-05-20 12:02:41','2024-12-19 12:25:25',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -450,8 +449,8 @@ DROP TABLE IF EXISTS `voucher`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `voucher` (
   `id_voucher` int NOT NULL AUTO_INCREMENT,
-  `id_history` int NOT NULL,
-  `id_user` int NOT NULL,
+  `id_history` int DEFAULT NULL,
+  `id_user` int DEFAULT NULL,
   `category` enum('Diskon 5 Persen','Gratis Ongkir') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `status` enum('Unused','Used') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -459,8 +458,8 @@ CREATE TABLE `voucher` (
   PRIMARY KEY (`id_voucher`),
   KEY `voucher_FK` (`id_history`),
   KEY `voucher_FK_1` (`id_user`),
-  CONSTRAINT `voucher_FK` FOREIGN KEY (`id_history`) REFERENCES `history` (`id_history`),
-  CONSTRAINT `voucher_FK_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
+  CONSTRAINT `voucher_FK` FOREIGN KEY (`id_history`) REFERENCES `history` (`id_history`) ON DELETE SET NULL ON UPDATE RESTRICT,
+  CONSTRAINT `voucher_FK_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -470,7 +469,7 @@ CREATE TABLE `voucher` (
 
 LOCK TABLES `voucher` WRITE;
 /*!40000 ALTER TABLE `voucher` DISABLE KEYS */;
-INSERT INTO `voucher` VALUES (11,1,1,'Diskon 5 Persen','Used','2024-12-18 04:30:25','2024-12-18 04:31:10'),(12,1,4,'Gratis Ongkir','Unused','2024-12-18 05:53:47','2024-12-19 05:53:47'),(13,1,4,'Diskon 5 Persen','Used','2024-12-19 05:56:44','2024-12-19 06:01:19');
+INSERT INTO `voucher` VALUES (11,NULL,1,'Diskon 5 Persen','Used','2024-12-18 04:30:25','2024-12-18 04:31:10'),(12,NULL,NULL,'Gratis Ongkir','Unused','2024-12-18 05:53:47','2024-12-19 05:53:47'),(13,NULL,NULL,'Diskon 5 Persen','Used','2024-12-19 05:56:44','2024-12-19 06:01:19');
 /*!40000 ALTER TABLE `voucher` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -487,4 +486,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-19 13:18:01
+-- Dump completed on 2024-12-19 19:38:37
