@@ -57,10 +57,10 @@
                                             </button>
                                         </a>
                                         
-                                        <button type="button" class="btn btn-danger btn-sm rounded-pill mb-2" data-bs-toggle="modal" data-bs-target="#delete-{{ $q->id_history }}">
+                                        <button type="button" class="btn btn-danger btn-sm rounded-pill mb-2" data-bs-toggle="modal" data-bs-target="#delete-{{ $q->id_quiz_question }}">
                                             <b><i class="bi bi-trash"></i> </b>
                                         </button>
-                                        <div class="modal fade" id="delete-{{ $q->id_history }}" tabindex="-1">
+                                        <div class="modal fade" id="delete-{{ $q->id_quiz_question }}" tabindex="-1">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -72,9 +72,9 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                        <form action="{{ asset('/dashboard/histories/delete/'.$q->id_history) }}" method="post">
+                                                        <form action="{{ asset('/dashboard/histories/quiz/'.$q->id_history.'/delete/'.$q->id_quiz_question) }}" method="post">
                                                             @csrf
-                                                            <button type="submit" class="btn btn-danger text-white"><i class="bi bi-trash"></i> Delete History</button>
+                                                            <button type="submit" class="btn btn-danger text-white"><i class="bi bi-trash"></i> Delete Question</button>
                                                         </form>
                                                     </div>
                                                 </div>

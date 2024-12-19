@@ -56,13 +56,21 @@
                                         @endforeach
                                     </td>
                                     <td>
+                                        @if($t->courier)
                                         {{ $t->courier->name }} (Rp. {{ number_format($t->courier->price) }})
+                                        @else
+                                        Courier deleted
+                                        @endif
                                         @if($t->voucher && $t->voucher->category == "Gratis Ongkir")
                                         <br><span style="font-size: 16px;">Voucher ({{ $t->voucher->category }})<span>
                                         @endif
                                     </td>
                                     <td>
+                                        @if($t->payment)
                                         {{ $t->payment->name }}
+                                        @else
+                                        Payment method deleted
+                                        @endif
                                         <p class="mb-0" style="font-size: 24px; font-weight: 600;">Rp. {{ number_format($t->total) }}</p>
                                         @if($t->voucher && $t->voucher->category == "Diskon 5 Persen")
                                         <span style="font-size: 16px;">Voucher ({{ $t->voucher->category }})<span>
@@ -78,6 +86,8 @@
                                         <br>Receipt: {{ $t->receipt }}
                                         @elseif($t->status == "Finished")
                                         <span class="badge bg-info">{{ $t->status }}</span>
+                                        @elseif($t->status == "Canceled")
+                                        <span class="badge bg-dark">{{ $t->status }}</span>
                                         @endif
                                     </td>
                                     <td>

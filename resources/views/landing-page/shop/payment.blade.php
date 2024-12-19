@@ -30,12 +30,22 @@
                                         @endforeach
                                     </td>
                                     <td>
+                                        @if($transaction->courier)
                                         {{ $transaction->courier->name }} (Rp. {{ number_format($transaction->courier->price) }})
+                                        @else
+                                        Courier deleted
+                                        @endif
                                         @if($transaction->voucher && $transaction->voucher->category == "Gratis Ongkir")
                                         <br><span style="font-size: 16px;">Voucher ({{ $transaction->voucher->category }})<span>
                                         @endif
                                     </td>
-                                    <td>{{ $transaction->payment->name }}</td>
+                                    <td>
+                                        @if($transaction->payment)
+                                        {{ $transaction->payment->name }}
+                                        @else
+                                        Payment method deleted
+                                        @endif
+                                    </td>
                                     <td>
                                         <p class="mb-0" style="font-size: 24px; font-weight: 600;">Rp. {{ number_format($transaction->total) }}</p>
                                         @if($transaction->voucher && $transaction->voucher->category == "Diskon 5 Persen")
@@ -49,15 +59,20 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <p style="font-size: 20px;" class="text-right">Please proceed your payment to this destination:</p>
-                <p style="font-size: 24px; font-weight: 600; line-height: 1;" class="mb-0">{{ $transaction->payment->name }}</p>
-                @if(Storage::exists('public/qris/'.$transaction->payment->account_qris) && $transaction->payment->account_qris)
-                    <img src="{{ asset('storage/qris/'.$transaction->payment->account_qris) }}" style="max-width: 350px;">
+                @if($transaction->transaction)
+                    <p style="font-size: 20px;" class="text-right">Please proceed your payment to this destination:</p>
+                    <p style="font-size: 24px; font-weight: 600; line-height: 1;" class="mb-0">{{ $transaction->payment->name }}</p>
+                    @if(Storage::exists('public/qris/'.$transaction->payment->account_qris) && $transaction->payment->account_qris)
+                        <img src="{{ asset('storage/qris/'.$transaction->payment->account_qris) }}" style="max-width: 350px;">
+                    @else
+                        <p style="font-size: 24px;">{{ $transaction->payment->account_number }} ({{ $transaction->payment->account_holder }})</p>
+                    @endif
                 @else
-                    <p style="font-size: 24px;">{{ $transaction->payment->account_number }} ({{ $transaction->payment->account_holder }})</p>
+                    <p style="font-size: 20px;" class="text-right">Payment method is deleted, please reorder again</p>
                 @endif
             </div>
             <div class="col-lg-6" style="text-align: right;">
+                @if($transaction->transaction)
                 <form action="{{ asset('/payment-action/'.$transaction->id_transaction) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -66,6 +81,9 @@
                     </div>
                     <button class="btn btn-primary" style="font-size: 20px;">Confirm</button>
                 </form>
+                @else
+                <a href="{{ asset('/cancel-action/'.$transaction->id_transaction) }}"><button type="button" class="btn btn-danger" style="font-size: 20px;">Cancel Order</button></a>
+                @endif
             </div>
         </div>
     </div>

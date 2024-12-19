@@ -9,15 +9,17 @@
                     @include('landing-page.layout.alert')
                 </div>
                 <div class="col-lg-5">
-                    <div class="product-image">
+                    <div class="product-image" style="padding-right: 20px;">
                         <a href="{{ asset('storage/history/'.$history->img_1) }}" data-lightbox="image" title="{{ $history->name }}">
                             <img alt="Shop product image!" class="main-image" src="{{ asset('storage/history/'.$history->img_1) }}">
                         </a>
-                        <div class="secondary-image-container">
+                        @if($history->img_2)
+                        <div class="secondary-image-container" style="padding-right: 10px;">
                             <a href="{{ asset('storage/history/'.$history->img_2) }}" data-lightbox="image" title="{{ $history->name }}">
                                 <img alt="Shop product image!" class="secondary-image" src="{{ asset('storage/history/'.$history->img_2) }}">
                             </a>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -28,7 +30,7 @@
                         <div class="seperator m-t-20 m-b-10"></div>
                         <div class="history-description">{!! $history->description !!}</div>
                     </div>
-                    @if($history->quiz_enabled == TRUE && $question->isNotEmpty())
+                    @if($question->isNotEmpty())
                     <a href="{{ asset('/quiz/'.$history->id_history) }}">
                         <button type="button" class="btn btn-roundeded btn-dark" style="font-size: 20px;">Quiz</button>
                     </a>

@@ -65,7 +65,11 @@
                                         @endforeach
                                     </td>
                                     <td class="text-dark">
+                                        @if($d->courier)
                                         {{ $d->courier->name }} (Rp. {{ number_format($d->courier->price) }})
+                                        @else
+                                        Courier deleted
+                                        @endif
                                     </td>
                                     <td class="text-secondary">
                                         Name: {{ $d->user->name }}<hr>
@@ -78,7 +82,11 @@
                                         @endphp
                                     </td>
                                     <td class="text-bold">
+                                        @if($d->payment)
                                         {{ $d->payment->name }}
+                                        @else
+                                        Payment method deleted
+                                        @endif
                                         <p class="text-primary"><b>Rp. {{ number_format($d->total) }}</b></p>
                                     </td>
                                     <td style="font-weight: 600;">
@@ -91,6 +99,8 @@
                                         <br>Receipt: {{ $d->receipt }}
                                         @elseif($d->status == "Finished")
                                         <span class="badge bg-info">{{ $d->status }}</span>
+                                        @elseif($d->status == "Canceled")
+                                        <span class="badge bg-dark">{{ $d->status }}</span>
                                         @endif
                                     </td>
                                     <td>

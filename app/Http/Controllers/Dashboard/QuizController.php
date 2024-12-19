@@ -166,8 +166,8 @@ class QuizController extends Controller
                 $quizQuestion = QuizQuestion::findOrFail($idQuizQuestion);
                 $quizQuestion->delete();
 
-                Session::flash('success', 'History deleted');
-                return redirect('/dashboard/histories');
+                Session::flash('success', 'Quiz deleted');
+                return redirect('/dashboard/histories/quiz/'.$idHistory);
             } else {
                 Session::flash('error', 'You are not authorized to access this page');
                 return redirect('/');

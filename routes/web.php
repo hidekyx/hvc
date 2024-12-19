@@ -51,6 +51,7 @@ Route::get('/transaction', [ShopController::class, 'transaction']);
 Route::get('/payment/{idTransaction}', [ShopController::class, 'payment']);
 Route::post('/payment-action/{idTransaction}', [ShopController::class, 'paymentAction']);
 Route::get('/confirm-action/{idTransaction}', [ShopController::class, 'confirmAction']);
+Route::get('/cancel-action/{idTransaction}', [ShopController::class, 'cancelAction']);
 Route::get('/review/{idTransactionDetail}', [ShopController::class, 'review']);
 Route::post('/review-action/{idTransactionDetail}', [ShopController::class, 'reviewAction']);
 

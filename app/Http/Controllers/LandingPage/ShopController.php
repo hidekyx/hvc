@@ -13,6 +13,7 @@ use App\Models\Review;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use App\Models\Voucher;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
@@ -54,7 +55,7 @@ class ShopController extends Controller
                 'cart' => Cart::where('id_user', Auth::id())->waiting()->orderByDesc('updated_at')->get(),
                 'courier' => Courier::get(),
                 'payment' => Payment::get(),
-                'voucher' => Voucher::where('id_user', Auth::id())->where('status', 'Unused')->get(),
+                'voucher' => Voucher::where('id_user', Auth::id())->where('status', 'Unused')->whereDate('created_at', Carbon::today())->get(),
             ];
 
             return view('landing-page.shop.cart')->with($view);
@@ -242,6 +243,22 @@ class ShopController extends Controller
             $transaction->save();
 
             Session::flash('success', 'Transaction is finished, thank you for your purchase!');
+            return redirect('/transaction');
+        } else {
+            Session::flash('error', 'You need to be logged in first');
+            return redirect('/login');
+        }
+    }
+
+    public function cancelAction($idTransaction)
+    {
+        if (Auth::check()) {
+            $transaction = Transaction::where('id_user', Auth::id())->where('id_transaction', $idTransaction)->firstOrFail();
+            
+            $transaction->status = "Canceled";
+            $transaction->save();
+
+            Session::flash('success', 'Transaction is canceled, thank you!');
             return redirect('/transaction');
         } else {
             Session::flash('error', 'You need to be logged in first');
