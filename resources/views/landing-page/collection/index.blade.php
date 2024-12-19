@@ -67,10 +67,10 @@
             <div class="col-lg-4">
                 <div class="team-member" style="background-color: #a8a8a8; padding: 20px; border-radius: 10px; min-height: 60vh;">
                     <div class="team-image">
-                    <a href="{{ asset('/shop/'.$r->id_collection) }}"><img src="{{ asset('storage/review/'.$r->img_1) }}" class="review-image"></a>
+                    <a href="{{ $r->collection ? asset('/shop/'.$r->id_collection) : '#' }}"><img src="{{ asset('storage/review/'.$r->img_1) }}" class="review-image"></a>
                     </div>
                     <div class="team-desc">
-                        <a href="{{ asset('/shop/'.$r->id_collection) }}"><h2 class="text-black">{{ $r->collection->name }}</h2></a>
+                        <a href="{{ $r->collection ? asset('/shop/'.$r->id_collection) : '#' }}"><h2 class="text-black">{{ $r->collection->name ?? 'Collection deleted' }}</h2></a>
                         <div class="product-rate" style="color: #FFC300;">
                             @for($i=0; $i < $r->rate; $i++)
                             <i class="fa fa-star"></i>
