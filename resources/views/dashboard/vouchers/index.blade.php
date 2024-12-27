@@ -47,7 +47,13 @@
                                         User deleted
                                         @endif
                                     </td>
-                                    <td style="font-weight: 600;">{{ $d->history->name }}</td>
+                                    <td style="font-weight: 600;">
+                                        @if($d->history)
+                                        {{ $d->history->name }}
+                                        @else
+                                        History deleted
+                                        @endif
+                                    </td>
                                     <td style="font-weight: 600;">{{ $d->category }}</td>
                                     <td style="font-weight: 600;">
                                         @if($d->status == "Used")
