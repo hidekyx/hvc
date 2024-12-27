@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                @if($transaction->transaction)
+                @if($transaction->payment)
                     <p style="font-size: 20px;" class="text-right">Please proceed your payment to this destination:</p>
                     <p style="font-size: 24px; font-weight: 600; line-height: 1;" class="mb-0">{{ $transaction->payment->name }}</p>
                     @if(Storage::exists('public/qris/'.$transaction->payment->account_qris) && $transaction->payment->account_qris)
@@ -72,7 +72,7 @@
                 @endif
             </div>
             <div class="col-lg-6" style="text-align: right;">
-                @if($transaction->transaction)
+                @if($transaction->payment)
                 <form action="{{ asset('/payment-action/'.$transaction->id_transaction) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
