@@ -41,7 +41,11 @@
                                         {{ $key+1 }}
                                     </th>
                                     <td class="text-bold" style="font-weight: 600;">
+                                        @if($d->user)
                                         {{ $d->user->name }}
+                                        @else
+                                        User deleted
+                                        @endif
                                     </td>
                                     <td style="font-weight: 600;">{{ $d->history->name }}</td>
                                     <td style="font-weight: 600;">{{ $d->category }}</td>
